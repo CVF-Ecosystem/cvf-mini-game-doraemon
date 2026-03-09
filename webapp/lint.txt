@@ -1,0 +1,50 @@
+
+> webapp@0.1.0 lint
+> eslint
+
+
+D:\UNG DUNG AI\TOOL AI 2026\CVF-Workspace\Mini_Game\webapp\src\app\page.tsx
+    24:3  warning  'playErrorTone' is defined but never used                                                                         @typescript-eslint/no-unused-vars
+    25:3  warning  'playSuccessTone' is defined but never used                                                                       @typescript-eslint/no-unused-vars
+   970:6  warning  React Hook useEffect has a missing dependency: 'setSoundMuted'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  1547:5  warning  React Hook useCallback has a missing dependency: 'playSfx'. Either include it or remove the dependency array      react-hooks/exhaustive-deps
+  1697:5  warning  React Hook useCallback has a missing dependency: 'playSfx'. Either include it or remove the dependency array      react-hooks/exhaustive-deps
+
+D:\UNG DUNG AI\TOOL AI 2026\CVF-Workspace\Mini_Game\webapp\src\components\ui-shell\PhaserParticleOverlay.tsx
+  37:40  warning  Compilation Skipped: `this` is not supported syntax
+
+React Compiler does not support compiling functions that use `this`.
+
+D:\UNG DUNG AI\TOOL AI 2026\CVF-Workspace\Mini_Game\webapp\src\components\ui-shell\PhaserParticleOverlay.tsx:37:40
+  35 |                 },
+  36 |                 scene: {
+> 37 |                     preload: function (this: unknown) {
+     |                                        ^^^^^^^^^^^^^ `this` was used here
+  38 |                         const graphics = (this as Phaser.Scene).make.graphics({ x: 0, y: 0 });
+  39 |                         graphics.fillStyle(0xffffff, 1);
+  40 |                         graphics.fillCircle(4, 4, 4);  react-hooks/unsupported-syntax
+
+D:\UNG DUNG AI\TOOL AI 2026\CVF-Workspace\Mini_Game\webapp\src\hooks\useAudio.ts
+  21:13  error  Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+D:\UNG DUNG AI\TOOL AI 2026\CVF-Workspace\Mini_Game\webapp\src\hooks\useAudio.ts:21:13
+  19 |         try {
+  20 |             const savedMuted = window.localStorage.getItem("cvf-muted") === "true";
+> 21 |             setIsMuted(savedMuted);
+     |             ^^^^^^^^^^ Avoid calling setState() directly within an effect
+  22 |         } catch { }
+  23 |
+  24 |         // Preload audio objects (ideally point to actual files in public/assets/)  react-hooks/set-state-in-effect
+
+D:\UNG DUNG AI\TOOL AI 2026\CVF-Workspace\Mini_Game\webapp\src\lib\content-bank\content-bank.test.ts
+  1:36  warning  'beforeEach' is defined but never used  @typescript-eslint/no-unused-vars
+  1:48  warning  'afterEach' is defined but never used   @typescript-eslint/no-unused-vars
+
+Γ£û 9 problems (1 error, 8 warnings)
+

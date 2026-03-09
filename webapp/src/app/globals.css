@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+:root {
+  --background: #eaf6ff;
+  --foreground: #10223b;
+  --surface: #ffffff;
+  --surface-soft: #dff3ff;
+  --line: #9fd3ff;
+  --primary: #249dff;
+  --accent: #ffb703;
+  --success: #52c41a;
+  --danger: #ff4d4f;
+  --shadow: 0 16px 44px rgba(10, 51, 96, 0.18);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-body);
+}
+
+body {
+  position: relative;
+  min-height: 100dvh;
+  margin: 0;
+  overflow-x: hidden;
+  background:
+    radial-gradient(1200px 640px at -10% -20%, #9bd8ff 0%, transparent 62%),
+    radial-gradient(950px 540px at 110% -12%, #ffe8a0 0%, transparent 58%),
+    linear-gradient(180deg, #f9fcff 0%, #eaf6ff 55%, #d8eeff 100%);
+  color: var(--foreground);
+  font-family: var(--font-body), "Segoe UI", sans-serif;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.28;
+  background-image: radial-gradient(circle at 2px 2px, #ffffff 1.4px, transparent 0);
+  background-size: 26px 26px;
+  animation: starScroll 26s linear infinite;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading), "Segoe UI", sans-serif;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+@keyframes starScroll {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(26px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before {
+    animation: none;
+  }
+}

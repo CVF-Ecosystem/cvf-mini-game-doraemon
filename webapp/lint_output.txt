@@ -1,0 +1,37 @@
+
+> webapp@0.1.0 lint
+> eslint
+
+
+D:\UNG DUNG AI\TOOL AI 2026\CVF-Workspace\Mini_Game\webapp\src\components\ui-shell\DashboardProgressView.tsx
+  211:98   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  217:147  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  217:185  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  220:139  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  220:177  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  227:112  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+D:\UNG DUNG AI\TOOL AI 2026\CVF-Workspace\Mini_Game\webapp\src\components\ui-shell\PhaserParticleOverlay.tsx
+  37:40  warning  Compilation Skipped: `this` is not supported syntax
+
+React Compiler does not support compiling functions that use `this`.
+
+D:\UNG DUNG AI\TOOL AI 2026\CVF-Workspace\Mini_Game\webapp\src\components\ui-shell\PhaserParticleOverlay.tsx:37:40
+  35 |                 },
+  36 |                 scene: {
+> 37 |                     preload: function (this: unknown) {
+     |                                        ^^^^^^^^^^^^^ `this` was used here
+  38 |                         const graphics = (this as Phaser.Scene).make.graphics({ x: 0, y: 0 });
+  39 |                         graphics.fillStyle(0xffffff, 1);
+  40 |                         graphics.fillCircle(4, 4, 4);  react-hooks/unsupported-syntax
+
+D:\UNG DUNG AI\TOOL AI 2026\CVF-Workspace\Mini_Game\webapp\src\lib\content-bank\content-bank.test.ts
+  1:36  warning  'beforeEach' is defined but never used  @typescript-eslint/no-unused-vars
+  1:48  warning  'afterEach' is defined but never used   @typescript-eslint/no-unused-vars
+
+D:\UNG DUNG AI\TOOL AI 2026\CVF-Workspace\Mini_Game\webapp\src\lib\rewards-service\index.ts
+  103:36   error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  103:100  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+Γ£û 11 problems (8 errors, 3 warnings)
+

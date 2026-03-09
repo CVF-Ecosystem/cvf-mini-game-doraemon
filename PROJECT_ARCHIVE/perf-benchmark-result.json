@@ -1,0 +1,38 @@
+{
+  "url": "http://localhost:3020",
+  "runs": [
+    {
+      "run": 1,
+      "lcpMs": 1536,
+      "fps": 60.4,
+      "loadMs": 8187
+    },
+    {
+      "run": 2,
+      "lcpMs": 100,
+      "fps": 60.4,
+      "loadMs": 8188
+    },
+    {
+      "run": 3,
+      "lcpMs": 316,
+      "fps": 60.4,
+      "loadMs": 8414
+    }
+  ],
+  "average": {
+    "lcpMs": 650.67,
+    "fps": 60.4,
+    "loadMs": 8263
+  },
+  "gate": {
+    "lcpPass": true,
+    "fpsPass": true,
+    "allPass": true
+  },
+  "environment": {
+    "device": "iPhone 12 emulation",
+    "cpuThrottleRate": 4,
+    "measuredAt": "2026-02-26T16:55:08.214Z"
+  }
+}
