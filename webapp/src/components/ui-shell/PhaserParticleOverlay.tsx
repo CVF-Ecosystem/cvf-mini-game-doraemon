@@ -29,6 +29,12 @@ export function PhaserParticleOverlay() {
                 transparent: true,
                 width: '100%',
                 height: '100%',
+                scale: {
+                  mode: Phaser.Scale.RESIZE,
+                  width: '100%',
+                  height: '100%',
+                  autoCenter: Phaser.Scale.CENTER_BOTH,
+                },
                 physics: {
                     default: 'arcade',
                     arcade: { gravity: { y: 200, x: 0 } }

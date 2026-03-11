@@ -27,6 +27,12 @@ export function FallingCatchGame({ questionText, choices, correctAnswer, onAnswe
                 parent: containerRef.current!,
                 width: 600,
                 height: 400,
+                scale: {
+                    mode: Phaser.Scale.FIT,
+                    width: 600,
+                    height: 400,
+                    autoCenter: Phaser.Scale.CENTER_BOTH
+                },
                 transparent: true,
                 physics: {
                     default: 'arcade',

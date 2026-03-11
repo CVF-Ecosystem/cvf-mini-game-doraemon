@@ -27,6 +27,11 @@ export function PhaserPet({ petName, width = 150, height = 150 }: PhaserPetProps
                 parent: phaserContainerRef.current,
                 width,
                 height,
+                scale: {
+                    mode: Phaser.Scale.NONE,
+                    width,
+                    height,
+                },
                 transparent: true,
                 scene: {
                     preload(this: Phaser.Scene) {

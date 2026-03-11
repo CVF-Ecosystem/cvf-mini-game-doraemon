@@ -69,6 +69,8 @@ export function PhaserPlayground({ className }: PhaserPlaygroundProps) {
         scene,
         scale: {
           mode: Phaser.Scale.RESIZE,
+          width: "100%",
+          height: "100%",
           autoCenter: Phaser.Scale.CENTER_BOTH,
         },
       });
