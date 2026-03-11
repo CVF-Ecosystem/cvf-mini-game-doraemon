@@ -2353,3 +2353,36 @@
   text-align: center;
   margin: 1rem 0;
 }
+
+/* Virtual Pet Room Tabs */
+.petRoomTabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.petRoomTabBtn {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #4a5568;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.petRoomTabBtn:hover {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--game-primary);
+}
+
+.petRoomTabActive {
+  background: var(--game-primary);
+  color: white;
+  border-color: var(--game-primary);
+  box-shadow: 0 4px 12px color-mix(in srgb, var(--game-primary) 40%, transparent);
+}
