@@ -37,6 +37,7 @@ function createDefaultSkills(): Record<MiniGameKey, SkillSnapshot> {
     logic: { score: 50, rounds: 0 },
     compare: { score: 50, rounds: 0 },
     vocab: { score: 50, rounds: 0 },
+    action_catch: { score: 50, rounds: 0 },
   };
 }
 
@@ -64,6 +65,7 @@ export function loadLearningPathState(): LearningPathState {
         logic: state.skills.logic ?? defaults.logic,
         compare: state.skills.compare ?? defaults.compare,
         vocab: state.skills.vocab ?? defaults.vocab,
+        action_catch: state.skills.action_catch ?? defaults.action_catch,
       },
       lastRecommendedGame: state.lastRecommendedGame ?? null,
     };

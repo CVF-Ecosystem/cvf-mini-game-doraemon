@@ -1,0 +1,2 @@
+src/hooks/useDashboardViewModels.ts(3,10): error TS2305: Module '"@/lib/progress-service"' has no exported member 'GameProgressState'.
+src/hooks/useDashboardViewModels.ts(3,58): error TS2305: Module '"@/lib/progress-service"' has no exported member 'DAILY_ROUNDS_TARGET'.

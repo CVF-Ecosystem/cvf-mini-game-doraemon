@@ -1,0 +1,231 @@
+.mapContainer {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  border-radius: 1.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2), inset 0 2px 0 rgba(255, 255, 255, 0.1);
+  color: white;
+  margin-bottom: 2rem;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Add some twinkling stars in the background */
+.mapContainer::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: 
+    radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 4px),
+    radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px),
+    radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 3px);
+  background-size: 550px 550px, 350px 350px, 250px 250px;
+  background-position: 0 0, 40px 60px, 130px 270px;
+  opacity: 0.5;
+  z-index: 0;
+}
+
+.mapHeader {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.mapTitle {
+  font-family: var(--font-baloo2);
+  font-size: 2rem;
+  margin: 0;
+  color: #f1c40f;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+  letter-spacing: 1px;
+}
+
+.mapSubtitle {
+  font-size: 1rem;
+  opacity: 0.8;
+  margin: 0.5rem 0 0 0;
+}
+
+.mapScrollWrapper {
+  position: relative;
+  z-index: 1;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 1rem 0 2rem 0;
+  /* Custom scrollbar for map */
+  scrollbar-width: thin;
+  scrollbar-color: #f1c40f rgba(0,0,0,0.2);
+}
+
+.mapScrollWrapper::-webkit-scrollbar {
+  height: 8px;
+}
+.mapScrollWrapper::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.2);
+  border-radius: 4px;
+}
+.mapScrollWrapper::-webkit-scrollbar-thumb {
+  background: #f1c40f;
+  border-radius: 4px;
+}
+
+.mapContent {
+  display: flex;
+  align-items: center;
+  min-width: max-content;
+  padding: 0 2rem;
+  gap: 2rem;
+}
+
+.zoneContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.zoneContainer:not(.zoneActive):not(.zoneCompleted) {
+  filter: grayscale(100%) brightness(0.6);
+}
+
+.zoneActive {
+  transform: scale(1.05);
+}
+
+.zonePlanet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+/* Distinct Planet visuals using Data Attributes */
+.planetGraphics {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  box-shadow: inset -10px -10px 20px rgba(0,0,0,0.4), 0 0 20px rgba(255,255,255,0.2);
+  margin-bottom: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.planetGraphics[data-zone="space_class"] {
+  background: radial-gradient(circle at 30% 30%, #4facfe 0%, #00f2fe 100%);
+}
+.planetGraphics[data-zone="orbit_lab"] {
+  background: radial-gradient(circle at 30% 30%, #fa709a 0%, #fee140 100%);
+}
+.planetGraphics[data-zone="nova_gate"] {
+  background: radial-gradient(circle at 30% 30%, #b224ef 0%, #7579ff 100%);
+}
+
+/* Planet Rings */
+.planetGraphics[data-zone="orbit_lab"]::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -20%;
+  width: 140%;
+  height: 20%;
+  border: 8px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50%;
+  transform: translateY(-50%) rotate(-15deg);
+  box-sizing: border-box;
+}
+
+.zoneLabel {
+  font-family: var(--font-baloo2);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: rgba(0,0,0,0.4);
+  padding: 0.25rem 1rem;
+  border-radius: 1rem;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+.nodesPath {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: -1rem;
+}
+
+.nodeWrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.mapNode {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #2d3436;
+  border: 4px solid #636e72;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 2;
+  cursor: default;
+}
+
+.nodeCompleted {
+  background: #f1c40f;
+  border-color: #f39c12;
+  box-shadow: 0 0 15px rgba(241, 196, 15, 0.6);
+}
+
+.nodeCurrent {
+  background: #3498db;
+  border-color: #2980b9;
+  box-shadow: 0 0 20px #3498db;
+  transform: scale(1.2);
+  animation: pulseNode 2s infinite ease-in-out;
+}
+
+@keyframes pulseNode {
+  0% { transform: scale(1.1); box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.7); }
+  70% { transform: scale(1.25); box-shadow: 0 0 0 15px rgba(52, 152, 219, 0); }
+  100% { transform: scale(1.1); box-shadow: 0 0 0 0 rgba(52, 152, 219, 0); }
+}
+
+.pathLine {
+  height: 6px;
+  width: 40px;
+  background: #636e72;
+  border-radius: 3px;
+  margin: 0 0.5rem;
+  z-index: 1;
+}
+
+.pathLineCompleted {
+  background: #f1c40f;
+  box-shadow: 0 0 8px rgba(241, 196, 15, 0.5);
+}
+
+/* Connector between zones */
+.zoneContainer:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: -2rem;
+  bottom: 21px; /* Align with nodes */
+  width: 2rem;
+  height: 6px;
+  background: #636e72;
+  border-radius: 3px;
+}
+
+.zoneActive::after, .zoneCompleted::after {
+  background: #f1c40f !important;
+  box-shadow: 0 0 8px rgba(241, 196, 15, 0.5);
+}

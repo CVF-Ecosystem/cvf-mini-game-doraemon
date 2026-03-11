@@ -31,28 +31,29 @@ D:\UNG DUNG AI\TOOL AI 2026\CVF-Workspace\Mini_Game\webapp\src\app\page.tsx
    88:32  warning  'getOrCreateExperimentAssignment' is defined but never used                                                                                   @typescript-eslint/no-unused-vars
    93:10  warning  'triggerParticleBurst' is defined but never used                                                                                              @typescript-eslint/no-unused-vars
    93:32  warning  'triggerConfettiBurst' is defined but never used                                                                                              @typescript-eslint/no-unused-vars
-  105:44  warning  'MINI_GAME_LABELS' is defined but never used                                                                                                  @typescript-eslint/no-unused-vars
-  105:62  warning  'LEVEL_LABELS' is defined but never used                                                                                                      @typescript-eslint/no-unused-vars
-  113:11  warning  'SpeechSegment' is defined but never used                                                                                                     @typescript-eslint/no-unused-vars
-  119:7   warning  'AGE_PROFILE_STORAGE_KEY' is assigned a value but never used                                                                                  @typescript-eslint/no-unused-vars
-  120:7   warning  'AUDIO_PREF_STORAGE_KEY' is assigned a value but never used                                                                                   @typescript-eslint/no-unused-vars
-  121:7   warning  'LANGUAGE_STORAGE_KEY' is assigned a value but never used                                                                                     @typescript-eslint/no-unused-vars
-  122:7   warning  'TTS_VOICE_STORAGE_KEY' is assigned a value but never used                                                                                    @typescript-eslint/no-unused-vars
-  125:7   warning  'DAILY_ROUNDS_TARGET' is assigned a value but never used                                                                                      @typescript-eslint/no-unused-vars
-  126:7   warning  'RUN_EXERCISE_LIMIT' is assigned a value but never used                                                                                       @typescript-eslint/no-unused-vars
-  148:10  warning  'pickSpeechVoice' is defined but never used                                                                                                   @typescript-eslint/no-unused-vars
-  193:34  error    Unexpected any. Specify a different type                                                                                                      @typescript-eslint/no-explicit-any
-  251:9   warning  'previousViewRef' is assigned a value but never used                                                                                          @typescript-eslint/no-unused-vars
-  255:9   warning  'retentionPingSentRef' is assigned a value but never used                                                                                     @typescript-eslint/no-unused-vars
-  310:5   warning  'activeAdaptiveTuning' is assigned a value but never used                                                                                     @typescript-eslint/no-unused-vars
-  364:5   warning  'dipBgmVolume' is assigned a value but never used                                                                                             @typescript-eslint/no-unused-vars
-  384:9   warning  'getColorChoiceDisplay' is assigned a value but never used                                                                                    @typescript-eslint/no-unused-vars
-  409:6   warning  React Hook useCallback has missing dependencies: 'setRunStats' and 'setWrongStreak'. Either include them or remove the dependency array       react-hooks/exhaustive-deps
-  458:6   warning  React Hook useEffect has a missing dependency: 'setWrongStreak'. Either include it or remove the dependency array                             react-hooks/exhaustive-deps
-  706:6   warning  React Hook useEffect has a missing dependency: 'setTimeLeft'. Either include it or remove the dependency array                                react-hooks/exhaustive-deps
-  720:6   warning  React Hook useEffect has a missing dependency: 'setMemoryRevealLeft'. Either include it or remove the dependency array                        react-hooks/exhaustive-deps
-  779:7   error    React Hook "useRewardInteractions" is called conditionally. React Hooks must be called in the exact same order in every component render      react-hooks/rules-of-hooks
-  796:7   error    React Hook "useParentModeInteractions" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
+  106:44  warning  'MINI_GAME_LABELS' is defined but never used                                                                                                  @typescript-eslint/no-unused-vars
+  106:62  warning  'LEVEL_LABELS' is defined but never used                                                                                                      @typescript-eslint/no-unused-vars
+  114:11  warning  'SpeechSegment' is defined but never used                                                                                                     @typescript-eslint/no-unused-vars
+  120:7   warning  'AGE_PROFILE_STORAGE_KEY' is assigned a value but never used                                                                                  @typescript-eslint/no-unused-vars
+  121:7   warning  'AUDIO_PREF_STORAGE_KEY' is assigned a value but never used                                                                                   @typescript-eslint/no-unused-vars
+  122:7   warning  'LANGUAGE_STORAGE_KEY' is assigned a value but never used                                                                                     @typescript-eslint/no-unused-vars
+  123:7   warning  'TTS_VOICE_STORAGE_KEY' is assigned a value but never used                                                                                    @typescript-eslint/no-unused-vars
+  126:7   warning  'DAILY_ROUNDS_TARGET' is assigned a value but never used                                                                                      @typescript-eslint/no-unused-vars
+  127:7   warning  'RUN_EXERCISE_LIMIT' is assigned a value but never used                                                                                       @typescript-eslint/no-unused-vars
+  149:10  warning  'pickSpeechVoice' is defined but never used                                                                                                   @typescript-eslint/no-unused-vars
+  194:34  error    Unexpected any. Specify a different type                                                                                                      @typescript-eslint/no-explicit-any
+  252:9   warning  'previousViewRef' is assigned a value but never used                                                                                          @typescript-eslint/no-unused-vars
+  256:9   warning  'retentionPingSentRef' is assigned a value but never used                                                                                     @typescript-eslint/no-unused-vars
+  311:5   warning  'activeAdaptiveTuning' is assigned a value but never used                                                                                     @typescript-eslint/no-unused-vars
+  365:5   warning  'dipBgmVolume' is assigned a value but never used                                                                                             @typescript-eslint/no-unused-vars
+  385:9   warning  'getColorChoiceDisplay' is assigned a value but never used                                                                                    @typescript-eslint/no-unused-vars
+  410:6   warning  React Hook useCallback has missing dependencies: 'setRunStats' and 'setWrongStreak'. Either include them or remove the dependency array       react-hooks/exhaustive-deps
+  459:6   warning  React Hook useEffect has a missing dependency: 'setWrongStreak'. Either include it or remove the dependency array                             react-hooks/exhaustive-deps
+  511:9   warning  'currentChoices' is assigned a value but never used                                                                                           @typescript-eslint/no-unused-vars
+  707:6   warning  React Hook useEffect has a missing dependency: 'setTimeLeft'. Either include it or remove the dependency array                                react-hooks/exhaustive-deps
+  721:6   warning  React Hook useEffect has a missing dependency: 'setMemoryRevealLeft'. Either include it or remove the dependency array                        react-hooks/exhaustive-deps
+  766:7   error    React Hook "useRewardInteractions" is called conditionally. React Hooks must be called in the exact same order in every component render      react-hooks/rules-of-hooks
+  783:7   error    React Hook "useParentModeInteractions" is called conditionally. React Hooks must be called in the exact same order in every component render  react-hooks/rules-of-hooks
 
 D:\UNG DUNG AI\TOOL AI 2026\CVF-Workspace\Mini_Game\webapp\src\components\game\MainQuestionBoard.tsx
   14:17  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
@@ -120,74 +121,10 @@ D:\UNG DUNG AI\TOOL AI 2026\CVF-Workspace\Mini_Game\webapp\src\hooks\useGameAudi
   120 |           setUiSfxEnabled(parsed.uiEnabled);  react-hooks/set-state-in-effect
 
 D:\UNG DUNG AI\TOOL AI 2026\CVF-Workspace\Mini_Game\webapp\src\hooks\useGameEngine.ts
-   57:20  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
-   64:25  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
-   64:35  error    Unexpected any. Specify a different type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 @typescript-eslint/no-explicit-any
-  125:5   error    Compilation Skipped: Existing memoization could not be preserved
-
-React Compiler has skipped optimizing this component because the existing manual memoization could not be preserved. The inferred dependencies did not match the manually specified dependencies, which could cause the value to change more or less frequently than expected. The inferred dependency was `getBossMetaByTotalRounds`, but the source dependencies were [RUN_EXERCISE_LIMIT, academyProgress.totalRounds, activeGame, activeRoundConfig, applyAcademyRoundResult, beginRound, captureRoundOutcome, getHintForCurrentGame, language, level.key, pickLanguageText, playSfx, rewardState.equippedPet, roundDurationSeconds, runStats.correct, runStats.total, runStats.wrong, setFeedback, setRunStats, setWrongStreak, timeLeft, trackEvent, triggerCelebration, updateProgress, wrongStreak]. Inferred different dependency than source.
-
-D:\UNG DUNG AI\TOOL AI 2026\CVF-Workspace\Mini_Game\webapp\src\hooks\useGameEngine.ts:125:5
-  123 |
-  124 |   const handleWrong = useCallback(
-> 125 |     (reason: "answer_wrong" | "round_timeout") => {
-      |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-> 126 |       const isAccuracyVision = rewardState.equippedPet === "Star Owl";
-      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-> 127 |       const nextWrongStreak = wrongStreak + 1;
-      ΓÇª
-      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-> 209 |       beginRound(activeGame, activeRoundConfig, reason === "round_timeout" ? "timeout" : "answer_wrong", level.key, nextRoundTotalRounds);
-      | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-> 210 |     },
-      | ^^^^^^ Could not preserve existing manual memoization
-  211 |     [
-  212 |       RUN_EXERCISE_LIMIT,
-  213 |       academyProgress.totalRounds,  react-hooks/preserve-manual-memoization
-  211:5   warning  React Hook useCallback has a missing dependency: 'getBossMetaByTotalRounds'. Either include it or remove the dependency array. If 'getBossMetaByTotalRounds' changes too often, find the parent component that defines it and wrap that definition in useCallback                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        react-hooks/exhaustive-deps
-  241:5   error    Compilation Skipped: Existing memoization could not be preserved
-
-React Compiler has skipped optimizing this component because the existing manual memoization could not be preserved. The inferred dependencies did not match the manually specified dependencies, which could cause the value to change more or less frequently than expected. The inferred dependency was `getBossMetaByTotalRounds`, but the source dependencies were [RUN_EXERCISE_LIMIT, academyProgress.totalRounds, activeGame, activeRoundConfig, answerLocked, applyAcademyRoundResult, beginRound, captureRoundOutcome, colorRound.answerColorName, compareRound.answer, handleWrong, language, level.baseScore, level.key, logicRound.answer, mathQuestion.answer, memoryRound.answer, pickLanguageText, playSfx, progress.combo, progress.highScores, progress.score, rewardState.equippedPet, roundDurationSeconds, runStats.correct, runStats.total, runStats.wrong, setFeedback, setRewardState, setRunStats, setWrongStreak, timeLeft, trackEvent, triggerCelebration, updateProgress, vocabRound.answer]. Inferred different dependency than source.
-
-D:\UNG DUNG AI\TOOL AI 2026\CVF-Workspace\Mini_Game\webapp\src\hooks\useGameEngine.ts:241:5
-  239 |
-  240 |   const handleAnswer = useCallback(
-> 241 |     (choice: string | number) => {
-      |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-> 242 |       if (answerLocked) {
-      | ^^^^^^^^^^^^^^^^^^^^^^^^^
-> 243 |         return;
-      ΓÇª
-      | ^^^^^^^^^^^^^^^^^^^^^^^^^
-> 373 |       beginRound(activeGame, activeRoundConfig, "answer_correct", level.key, nextRoundTotalRounds);
-      | ^^^^^^^^^^^^^^^^^^^^^^^^^
-> 374 |     },
-      | ^^^^^^ Could not preserve existing manual memoization
-  375 |     [
-  376 |       RUN_EXERCISE_LIMIT,
-  377 |       academyProgress.totalRounds,                                                                                react-hooks/preserve-manual-memoization
-  241:5   error    Compilation Skipped: Existing memoization could not be preserved
-
-React Compiler has skipped optimizing this component because the existing manual memoization could not be preserved. The inferred dependencies did not match the manually specified dependencies, which could cause the value to change more or less frequently than expected. The inferred dependency was `getRuntimeRoundConfig`, but the source dependencies were [RUN_EXERCISE_LIMIT, academyProgress.totalRounds, activeGame, activeRoundConfig, answerLocked, applyAcademyRoundResult, beginRound, captureRoundOutcome, colorRound.answerColorName, compareRound.answer, handleWrong, language, level.baseScore, level.key, logicRound.answer, mathQuestion.answer, memoryRound.answer, pickLanguageText, playSfx, progress.combo, progress.highScores, progress.score, rewardState.equippedPet, roundDurationSeconds, runStats.correct, runStats.total, runStats.wrong, setFeedback, setRewardState, setRunStats, setWrongStreak, timeLeft, trackEvent, triggerCelebration, updateProgress, vocabRound.answer]. Inferred different dependency than source.
-
-D:\UNG DUNG AI\TOOL AI 2026\CVF-Workspace\Mini_Game\webapp\src\hooks\useGameEngine.ts:241:5
-  239 |
-  240 |   const handleAnswer = useCallback(
-> 241 |     (choice: string | number) => {
-      |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-> 242 |       if (answerLocked) {
-      | ^^^^^^^^^^^^^^^^^^^^^^^^^
-> 243 |         return;
-      ΓÇª
-      | ^^^^^^^^^^^^^^^^^^^^^^^^^
-> 373 |       beginRound(activeGame, activeRoundConfig, "answer_correct", level.key, nextRoundTotalRounds);
-      | ^^^^^^^^^^^^^^^^^^^^^^^^^
-> 374 |     },
-      | ^^^^^^ Could not preserve existing manual memoization
-  375 |     [
-  376 |       RUN_EXERCISE_LIMIT,
-  377 |       academyProgress.totalRounds,                                                                                   react-hooks/preserve-manual-memoization
-  375:5   warning  React Hook useCallback has missing dependencies: 'getBossMetaByTotalRounds' and 'getRuntimeRoundConfig'. Either include them or remove the dependency array. If 'getBossMetaByTotalRounds' changes too often, find the parent component that defines it and wrap that definition in useCallback                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          react-hooks/exhaustive-deps
+   1:10  warning  'useCallback' is defined but never used   @typescript-eslint/no-unused-vars
+  57:20  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  64:25  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+  64:35  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
 
 D:\UNG DUNG AI\TOOL AI 2026\CVF-Workspace\Mini_Game\webapp\src\hooks\useGameHeaderViewModels.ts
     6:3   warning  'getColorMarker' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  @typescript-eslint/no-unused-vars
@@ -382,6 +319,10 @@ D:\UNG DUNG AI\TOOL AI 2026\CVF-Workspace\Mini_Game\webapp\src\hooks\useGameHead
   253 |     mathQuestion?.left,
   254 |     mathQuestion?.operator,                                                                                                                                                                                 react-hooks/preserve-manual-memoization
 
+D:\UNG DUNG AI\TOOL AI 2026\CVF-Workspace\Mini_Game\webapp\src\hooks\useGameKeyboardInteraction.ts
+   1:21  warning  'useMemo' is defined but never used       @typescript-eslint/no-unused-vars
+  24:21  error    Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
 D:\UNG DUNG AI\TOOL AI 2026\CVF-Workspace\Mini_Game\webapp\src\hooks\useGameRoundControl.ts
    1:23  warning  'useEffect' is defined but never used                   @typescript-eslint/no-unused-vars
    7:3   warning  'getDefaultContentBankState' is defined but never used  @typescript-eslint/no-unused-vars
@@ -401,5 +342,5 @@ D:\UNG DUNG AI\TOOL AI 2026\CVF-Workspace\Mini_Game\webapp\src\lib\store\game-st
   125:92  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
   128:74  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
 
-Γ£û 95 problems (35 errors, 60 warnings)
+Γ£û 94 problems (33 errors, 61 warnings)
 

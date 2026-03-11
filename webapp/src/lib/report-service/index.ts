@@ -51,6 +51,7 @@ function cloneByGame(
     logic: getSafe(value.logic),
     compare: getSafe(value.compare),
     vocab: getSafe(value.vocab),
+    action_catch: getSafe(value.action_catch),
   };
 }
 
@@ -91,7 +92,9 @@ function sameEntry(left: DailyReportEntry, right: DailyReportEntry): boolean {
     leftByGame.color.correct === rightByGame.color.correct &&
     leftByGame.logic.correct === rightByGame.logic.correct &&
     leftByGame.compare.correct === rightByGame.compare.correct &&
-    leftByGame.vocab.correct === rightByGame.vocab.correct
+    leftByGame.vocab.correct === rightByGame.vocab.correct &&
+    leftByGame.action_catch.rounds === rightByGame.action_catch.rounds &&
+    leftByGame.action_catch.correct === rightByGame.action_catch.correct
   );
 }
 
@@ -188,6 +191,7 @@ function getWeakGame(days: DailyReportEntry[]): MiniGameKey | null {
     logic: { rounds: 0, correct: 0 },
     compare: { rounds: 0, correct: 0 },
     vocab: { rounds: 0, correct: 0 },
+    action_catch: { rounds: 0, correct: 0 },
   };
 
   days.forEach((day) => {
@@ -246,6 +250,12 @@ function getSuggestion(weakGame: MiniGameKey | null, trend: "up" | "down" | "fla
     return {
       vi: "Luyen Tu Vung Song Ngu theo cap tu ngan 3-5 phut moi ngay.",
       en: "Practice bilingual word matching for 3-5 minutes daily.",
+    };
+  }
+  if (weakGame === "action_catch") {
+    return {
+      vi: "Tap trung vao su nhanh tay nhanh mat 3 phut/ngay.",
+      en: "Focus on hand-eye coordination for 3 minutes daily.",
     };
   }
   if (trend === "up") {

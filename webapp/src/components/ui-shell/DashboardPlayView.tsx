@@ -6,6 +6,8 @@ import { GameHud } from "@/components/ui-shell/GameHud";
 import { UiLanguage, AgeGroupKey } from "@/app/page";
 import { MiniGameKey, LevelKey } from "@/lib/game-core/types";
 import { trackEvent } from "@/lib/telemetry";
+import { BOSS_POOL, RewardState } from "@/lib/rewards-service";
+import { PhaserPet } from "./PhaserPet";
 
 export interface DashboardPlayViewProps {
     language: UiLanguage;
@@ -48,6 +50,7 @@ export interface DashboardPlayViewProps {
     feedback: { tone: "success" | "error" | "info"; text: string };
     feedbackClass: (tone: "success" | "error" | "info") => string;
     renderMainQuestion: () => ReactNode;
+    rewardState: RewardState;
 }
 
 export function DashboardPlayView(props: DashboardPlayViewProps) {
@@ -92,7 +95,13 @@ export function DashboardPlayView(props: DashboardPlayViewProps) {
         feedback,
         feedbackClass,
         renderMainQuestion,
+        rewardState,
     } = props;
+
+    // Derived Boss Info
+    const bossIndex = Math.max(0, currentBossRoundMeta.bossRoundNumber - 1) % BOSS_POOL.length;
+    const activeBoss = BOSS_POOL[bossIndex];
+    const petName = rewardState.equippedPet || pickLanguageText(language, "Quả Trứng", "Egg");
 
     return (
         <>
@@ -171,11 +180,22 @@ export function DashboardPlayView(props: DashboardPlayViewProps) {
                 <header className={styles.questionHeader}>
                     <div>
                         {currentBossRoundMeta.isBossRound && (
-                            <h2 className={styles.bossWarningTitle}>
-                                ⚠️ BOSS BATTLE ⚠️
-                            </h2>
+                            <div className={styles.bossBattleHeader}>
+                                <h2 className={styles.bossWarningTitle}>
+                                    ⚠️ BOSS BATTLE: {language === "vi" ? activeBoss?.nameVi : activeBoss?.nameEn} ⚠️
+                                </h2>
+                                <div className={styles.bossHealthContainer}>
+                                    <p className={styles.bossHealthLabel}>{pickLanguageText(language, "HP Boss", "Boss HP")}</p>
+                                    <div className={styles.bossHealthTrack}>
+                                        <div 
+                                          className={styles.bossHealthFill} 
+                                          style={{ width: `${Math.max(0, 100 - (runStats as { correct: number }).correct * 20)}%` }} 
+                                        />
+                                    </div>
+                                </div>
+                            </div>
                         )}
-                        <h2>{gameTitle}</h2>
+                        <h2>{currentBossRoundMeta.isBossRound ? "" : gameTitle}</h2>
                         <p className={styles.hint}>
                             {currentBossRoundMeta.isBossRound
                                 ? pickLanguageText(
@@ -240,15 +260,22 @@ export function DashboardPlayView(props: DashboardPlayViewProps) {
                 </div>
 
                 <div className={styles.runTracker}>
-                    <p className={styles.runTrackerLabel}>
-                        {pickLanguageText(language, "Tien do luot", "Run progress")}: {(runStats as { total: number }).total}/15
-                    </p>
-                    <div className={styles.runTrackerTrack} role="presentation" aria-hidden>
-                        <span className={styles.runTrackerFill} style={{ width: `${Math.round(runProgressRatio * 100)}%` }} />
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                        <div style={{ flex: 1 }}>
+                            <p className={styles.runTrackerLabel}>
+                                {pickLanguageText(language, "Tien do luot", "Run progress")}: {(runStats as { total: number }).total}/15
+                            </p>
+                            <div className={styles.runTrackerTrack} role="presentation" aria-hidden>
+                                <span className={styles.runTrackerFill} style={{ width: `${Math.round(runProgressRatio * 100)}%` }} />
+                            </div>
+                            <p className={styles.runTrackerStats}>
+                                {pickLanguageText(language, "Dung", "Correct")} {(runStats as { correct: number }).correct} | {pickLanguageText(language, "Sai", "Wrong")} {(runStats as { wrong: number }).wrong} | {pickLanguageText(language, "Chinh xac", "Accuracy")} {runAccuracy}%
+                            </p>
+                        </div>
+                        <div style={{ flexShrink: 0, width: '100px', height: '100px', pointerEvents: 'none' }}>
+                            <PhaserPet petName={petName} width={100} height={100} />
+                        </div>
                     </div>
-                    <p className={styles.runTrackerStats}>
-                        {pickLanguageText(language, "Dung", "Correct")} {(runStats as { correct: number }).correct} | {pickLanguageText(language, "Sai", "Wrong")} {(runStats as { wrong: number }).wrong} | {pickLanguageText(language, "Chinh xac", "Accuracy")} {runAccuracy}%
-                    </p>
                 </div>
 
                 {(runStats as { completed: boolean }).completed ? (

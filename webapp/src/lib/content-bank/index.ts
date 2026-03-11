@@ -122,6 +122,12 @@ const AGE_GAME_COPY: Record<ContentAgeGroup, Record<MiniGameKey, AgeGameCopy>> =
       focusVi: "Nho nghia tu don gian qua tro choi.",
       focusEn: "Build simple vocabulary through matching.",
     },
+    action_catch: {
+      descriptionVi: "Hung dap an dung roi tu tren xuong.",
+      descriptionEn: "Catch the correct falling answer.",
+      focusVi: "Ket hop tinh toan nhanh va di chuyen kham pha.",
+      focusEn: "Combine quick math and movement reflexes.",
+    },
   },
   age_7_8: {
     math: {
@@ -160,6 +166,12 @@ const AGE_GAME_COPY: Record<ContentAgeGroup, Record<MiniGameKey, AgeGameCopy>> =
       focusVi: "Luyen song ngu moi ngay voi cap tu ngan.",
       focusEn: "Practice daily bilingual matching with short pairs.",
     },
+    action_catch: {
+      descriptionVi: "Hung bong nhanh trung muc tieu.",
+      descriptionEn: "Catch falling items accurately.",
+      focusVi: "Phan xa the chat va tri tue dong thoi.",
+      focusEn: "Simultaneous physical and mental reflex.",
+    },
   },
   age_9_10: {
     math: {
@@ -197,6 +209,12 @@ const AGE_GAME_COPY: Record<ContentAgeGroup, Record<MiniGameKey, AgeGameCopy>> =
       descriptionEn: "Advanced bilingual rounds with action and skill words.",
       focusVi: "Lien ket nghia Viet-Anh nhanh va chinh xac.",
       focusEn: "Map Vietnamese-English meaning quickly and accurately.",
+    },
+    action_catch: {
+      descriptionVi: "Hung dap an nang cao toc do nhanh.",
+      descriptionEn: "High-speed catching with complex options.",
+      focusVi: "Uu tien tinh nhanh va phan xa cuc luyen.",
+      focusEn: "Prioritize hyper-fast math and movement.",
     },
   },
 };
@@ -251,6 +269,7 @@ function createDefaultRecentKeys(): Record<MiniGameKey, string[]> {
     logic: [],
     compare: [],
     vocab: [],
+    action_catch: [],
   };
 }
 
@@ -265,6 +284,7 @@ function cloneState(state: ContentBankState): ContentBankState {
       logic: [...state.recentKeys.logic],
       compare: [...state.recentKeys.compare],
       vocab: [...state.recentKeys.vocab],
+      action_catch: [...(state.recentKeys.action_catch ?? [])],
     },
   };
 }
@@ -353,6 +373,9 @@ export function loadContentBankState(now: Date = new Date()): ContentBankState {
           : [],
         vocab: Array.isArray((parsed.recentKeys as Record<string, unknown>).vocab)
           ? ((parsed.recentKeys as Record<string, string[]>).vocab ?? []).slice(-HISTORY_WINDOW)
+          : [],
+        action_catch: Array.isArray((parsed.recentKeys as Record<string, unknown>).action_catch)
+          ? ((parsed.recentKeys as Record<string, string[]>).action_catch ?? []).slice(-HISTORY_WINDOW)
           : [],
       },
     };

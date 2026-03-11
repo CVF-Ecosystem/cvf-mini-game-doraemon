@@ -68,11 +68,13 @@ export function useAudio() {
         });
     }, []);
 
-    const playSfx = useCallback((key: SfxKey) => {
+    const playSfx = useCallback((key: SfxKey, pitch: number = 1.0) => {
         if (isMuted) return;
         const audio = sfxRefs.current[key];
         if (audio) {
             audio.currentTime = 0;
+            audio.playbackRate = pitch;
+            audio.preservesPitch = false; // Required in some browsers to actually shift pitch instead of just tempo
             audio.play().catch(() => { });
         }
     }, [isMuted]);

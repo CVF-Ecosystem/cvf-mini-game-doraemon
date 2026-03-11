@@ -1,4 +1,5 @@
 import { BADGE_POOL, LEVEL_ORDER, LevelKey, MiniGameKey } from "@/lib/game-core/types";
+import { MicroGoal } from "./micro-goals";
 
 export interface ParentModeSettings {
   enabled: boolean;
@@ -36,6 +37,7 @@ export interface PlayerProgress {
   parentMode: ParentModeSettings;
   usage: DailyUsage;
   dailyStats: DailyStats;
+  activeMicroGoal?: MicroGoal | null;
 }
 
 const STORAGE_KEY = "cvf-mini-game-progress-v1";
@@ -70,6 +72,7 @@ function getDefaultGameStats(): Record<MiniGameKey, GameStat> {
     logic: { rounds: 0, correct: 0, wrong: 0 },
     compare: { rounds: 0, correct: 0, wrong: 0 },
     vocab: { rounds: 0, correct: 0, wrong: 0 },
+    action_catch: { rounds: 0, correct: 0, wrong: 0 },
   };
 }
 
@@ -99,6 +102,7 @@ export function getDefaultProgress(now: Date = new Date()): PlayerProgress {
       wrong: 0,
       byGame: getDefaultGameStats(),
     },
+    activeMicroGoal: null,
   };
 }
 
@@ -148,6 +152,7 @@ function mergeProgress(raw: Partial<PlayerProgress>, now: Date = new Date()): Pl
         ...(raw.dailyStats?.byGame ?? {}),
       },
     },
+    activeMicroGoal: raw.activeMicroGoal ?? null,
     badges: Array.isArray(raw.badges) ? raw.badges.slice(0, 24) : [],
   };
   return normalizeForToday(merged, now);

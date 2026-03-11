@@ -57,6 +57,7 @@ describe("report service", () => {
         logic: { rounds: 0, correct: 0, wrong: 0 },
         compare: { rounds: 0, correct: 0, wrong: 0 },
         vocab: { rounds: 0, correct: 0, wrong: 0 },
+        action_catch: { rounds: 0, correct: 0, wrong: 0 },
       },
     });
     const same = syncTodayMetrics(day1, {
@@ -72,6 +73,7 @@ describe("report service", () => {
         logic: { rounds: 0, correct: 0, wrong: 0 },
         compare: { rounds: 0, correct: 0, wrong: 0 },
         vocab: { rounds: 0, correct: 0, wrong: 0 },
+        action_catch: { rounds: 0, correct: 0, wrong: 0 },
       },
     });
 
@@ -94,6 +96,7 @@ describe("report service", () => {
         logic: { rounds: 0, correct: 0, wrong: 0 },
         compare: { rounds: 0, correct: 0, wrong: 0 },
         vocab: { rounds: 0, correct: 0, wrong: 0 },
+        action_catch: { rounds: 0, correct: 0, wrong: 0 },
       },
     });
     state = syncTodayMetrics(state, {
@@ -109,6 +112,7 @@ describe("report service", () => {
         logic: { rounds: 0, correct: 0, wrong: 0 },
         compare: { rounds: 0, correct: 0, wrong: 0 },
         vocab: { rounds: 0, correct: 0, wrong: 0 },
+        action_catch: { rounds: 0, correct: 0, wrong: 0 },
       },
     });
     state = syncTodayMetrics(state, {
@@ -124,6 +128,7 @@ describe("report service", () => {
         logic: { rounds: 0, correct: 0, wrong: 0 },
         compare: { rounds: 0, correct: 0, wrong: 0 },
         vocab: { rounds: 0, correct: 0, wrong: 0 },
+        action_catch: { rounds: 0, correct: 0, wrong: 0 },
       },
     });
 
@@ -154,6 +159,7 @@ describe("report service", () => {
               logic: { rounds: 0, correct: 0, wrong: 0 },
               compare: { rounds: 0, correct: 0, wrong: 0 },
               vocab: { rounds: 0, correct: 0, wrong: 0 },
+              action_catch: { rounds: 0, correct: 0, wrong: 0 },
             },
           },
         ],

@@ -37,6 +37,7 @@ function createEmptyRecentByGame(): Record<MiniGameKey, AdaptiveRoundOutcome[]> 
     logic: [],
     compare: [],
     vocab: [],
+    action_catch: [],
   };
 }
 
@@ -69,6 +70,7 @@ export function loadAdaptiveEngineState(): AdaptiveEngineState {
         logic: Array.isArray(candidate.recentByGame.logic) ? candidate.recentByGame.logic.slice(-WINDOW_SIZE) : [],
         compare: Array.isArray(candidate.recentByGame.compare) ? candidate.recentByGame.compare.slice(-WINDOW_SIZE) : [],
         vocab: Array.isArray(candidate.recentByGame.vocab) ? candidate.recentByGame.vocab.slice(-WINDOW_SIZE) : [],
+        action_catch: Array.isArray(candidate.recentByGame.action_catch) ? candidate.recentByGame.action_catch.slice(-WINDOW_SIZE) : [],
       },
     };
   } catch {

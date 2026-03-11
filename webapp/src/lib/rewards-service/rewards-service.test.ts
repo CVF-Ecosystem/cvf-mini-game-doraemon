@@ -59,6 +59,7 @@ describe("rewards service", () => {
           logic: { rounds: 0, correct: 0, wrong: 0 },
           compare: { rounds: 0, correct: 0, wrong: 0 },
           vocab: { rounds: 0, correct: 0, wrong: 0 },
+          action_catch: { rounds: 0, correct: 0, wrong: 0 },
         },
       },
       {

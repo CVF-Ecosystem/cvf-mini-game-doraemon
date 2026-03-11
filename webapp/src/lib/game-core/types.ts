@@ -1,6 +1,6 @@
 export type LevelKey = "rookie" | "talent" | "master";
 export type MathOperator = "+" | "-";
-export type MiniGameKey = "math" | "memory" | "color" | "logic" | "compare" | "vocab";
+export type MiniGameKey = "math" | "memory" | "color" | "logic" | "compare" | "vocab" | "action_catch";
 
 export interface LevelConfig {
   key: LevelKey;

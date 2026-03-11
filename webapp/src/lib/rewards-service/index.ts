@@ -12,6 +12,8 @@ export interface RewardState {
   equippedPet: string | null;
   equippedTool: string | null;
   selfChallengeWinDate: string | null;
+  inventory: string[]; // Store purchased item IDs from the Room Shop
+  unlockedBosses: string[];
 }
 
 export interface TodayChallengeMetrics {
@@ -63,6 +65,19 @@ const AVATAR_POOL = ["Captain Kid", "Orbit Runner", "Nova Agent", "Galaxy Ace"];
 const PET_POOL = ["Robo Pup", "Comet Fox", "Star Owl", "Nano Dragon"];
 const TOOL_POOL = ["Lens Scanner", "Code Decoder", "Time Anchor", "Pattern Radar"];
 
+export const BOSS_POOL = [
+  { id: "boss_1", nameVi: "Quái Vật Sao Hỏa", nameEn: "Mars Monster" },
+  { id: "boss_2", nameVi: "Thiết Giáp Không Gian", nameEn: "Astro Armadillo" },
+  { id: "boss_3", nameVi: "Nhện Tinh Vân", nameEn: "Nebula Spider" },
+  { id: "boss_4", nameVi: "Rồng Lỗ Đen", nameEn: "Blackhole Dragon" },
+  { id: "boss_5", nameVi: "Mộc Tinh Golem", nameEn: "Jupiter Golem" },
+  { id: "boss_6", nameVi: "Bạch Tuộc Ngân Hà", nameEn: "Galactic Octopus" },
+  { id: "boss_7", nameVi: "Người Đá Mặt Trăng", nameEn: "Moon Rock" },
+  { id: "boss_8", nameVi: "Tinh Linh Mộc Tinh", nameEn: "Jupiter Sprite" },
+  { id: "boss_9", nameVi: "Ám Yêu Tinh", nameEn: "Dark Goblin" },
+  { id: "boss_10", nameVi: "Lord Đại Thiên Hà", nameEn: "Galactic Lord" },
+];
+
 function getTodayKey(now: Date = new Date()): string {
   const year = now.getFullYear();
   const month = String(now.getMonth() + 1).padStart(2, "0");
@@ -91,6 +106,8 @@ export function getDefaultRewardState(): RewardState {
     equippedPet: null,
     equippedTool: null,
     selfChallengeWinDate: null,
+    inventory: [],
+    unlockedBosses: [],
   };
 }
 
@@ -106,14 +123,16 @@ export function loadRewardState(): RewardState {
       stickers: Array.from(new Set(state.stickers)).slice(0, STICKER_POOL.length),
       chestLastOpenedDate: state.chestLastOpenedDate ?? null,
       chestOpenCount: Math.max(0, Math.round(state.chestOpenCount)),
-      bonusOpens: typeof (state as unknown as { bonusOpens?: number }).bonusOpens === "number" ? Math.max(0, Math.round((state as unknown as { bonusOpens: number }).bonusOpens)) : 0,
-      coins: typeof (state as unknown as { coins?: number }).coins === "number" ? Math.max(0, Math.round((state as unknown as { coins: number }).coins)) : 0,
-      petHunger: typeof (state as unknown as { petHunger?: number }).petHunger === "number" ? Math.max(0, Math.min(100, Math.round((state as unknown as { petHunger: number }).petHunger))) : 50,
-      petHappiness: typeof (state as unknown as { petHappiness?: number }).petHappiness === "number" ? Math.max(0, Math.min(100, Math.round((state as unknown as { petHappiness: number }).petHappiness))) : 50,
+      bonusOpens: typeof state.bonusOpens === "number" ? Math.max(0, Math.round(state.bonusOpens)) : 0,
+      coins: typeof state.coins === "number" ? Math.max(0, Math.round(state.coins)) : 0,
+      petHunger: typeof state.petHunger === "number" ? Math.max(0, Math.min(100, Math.round(state.petHunger))) : 50,
+      petHappiness: typeof state.petHappiness === "number" ? Math.max(0, Math.min(100, Math.round(state.petHappiness))) : 50,
       equippedAvatar: state.equippedAvatar ?? null,
       equippedPet: state.equippedPet ?? null,
       equippedTool: state.equippedTool ?? null,
       selfChallengeWinDate: state.selfChallengeWinDate ?? null,
+      inventory: Array.isArray(state.inventory) ? state.inventory : [],
+      unlockedBosses: Array.isArray((state as any).unlockedBosses) ? (state as any).unlockedBosses : [],
     };
   } catch {
     return getDefaultRewardState();
@@ -231,6 +250,16 @@ export function earnCoins(state: RewardState, amount: number): RewardState {
   };
 }
 
+export function unlockBoss(state: RewardState, bossId: string): RewardState {
+  if (state.unlockedBosses.includes(bossId)) {
+    return state;
+  }
+  return {
+    ...state,
+    unlockedBosses: [...state.unlockedBosses, bossId],
+  };
+}
+
 export function feedPet(state: RewardState, cost: number, nutrition: number, happinessBoost: number): { nextState: RewardState, success: boolean } {
   if (state.coins < cost) {
     return { nextState: state, success: false };
@@ -334,5 +363,16 @@ export function markSelfChallengeWin(state: RewardState, date: string): RewardSt
   return {
     ...state,
     selfChallengeWinDate: date,
+  };
+}
+
+export function buyShopItem(state: RewardState, itemId: string, cost: number): RewardState {
+  if (state.coins < cost) return state;
+  if (state.inventory.includes(itemId)) return state;
+
+  return {
+    ...state,
+    coins: state.coins - cost,
+    inventory: [...state.inventory, itemId],
   };
 }
