@@ -120,8 +120,8 @@ export function useGameHeaderViewModels({
   );
 
   const learningSuggestion = useMemo(
-    () => getLearningSuggestion(learningPathState, activeGame),
-    [activeGame, learningPathState]
+    () => getLearningSuggestion(learningPathState, activeGame, language),
+    [activeGame, learningPathState, language]
   );
 
   const adaptiveBandLabel = useMemo(() => {

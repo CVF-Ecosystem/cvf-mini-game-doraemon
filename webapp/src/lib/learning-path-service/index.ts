@@ -1,4 +1,5 @@
 import { MINI_GAMES, MiniGameKey } from "@/lib/game-core/types";
+import { MINI_GAME_LABELS } from "@/lib/game-core/labels";
 
 export interface SkillSnapshot {
   score: number;
@@ -123,16 +124,13 @@ function getWeakestGame(skills: Record<MiniGameKey, SkillSnapshot>): MiniGameKey
 }
 
 function getGameTitle(game: MiniGameKey, language: "vi" | "en"): string {
-  const found = MINI_GAMES.find((item) => item.key === game);
-  if (found) {
-    return language === "vi" ? found.title : found.title;
-  }
-  return game;
+  return MINI_GAME_LABELS[language][game]?.title || game;
 }
 
 export function getLearningSuggestion(
   state: LearningPathState,
   activeGame: MiniGameKey,
+  language: "vi" | "en" = "vi"
 ): LearningSuggestion {
   const weakest = getWeakestGame(state.skills);
   const weakestScore = state.skills[weakest].score;
