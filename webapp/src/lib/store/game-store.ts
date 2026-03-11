@@ -124,6 +124,6 @@ export const useGameStore = create<GameStoreState>((set) => ({
   wrongStreak: 0,
   setWrongStreak: (streak) => set({ wrongStreak: typeof streak === "function" ? (streak as any)(useGameStore.getState().wrongStreak) : streak }),
 
-  feedback: { tone: "info", text: "Chon mini game va bat dau hanh trinh hoc ma choi!" },
+  feedback: { tone: "info", text: "Chọn mini game và bắt đầu hành trình học mà chơi!" },
   setFeedback: (fb) => set({ feedback: typeof fb === "function" ? (fb as any)(useGameStore.getState().feedback) : fb }),
 }));

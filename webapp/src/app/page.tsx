@@ -210,8 +210,28 @@ export default function Home() {
   const [learningPathState, setLearningPathState] = useState<LearningPathState>(() => getDefaultLearningPathState());
   const [feedback, setFeedback] = useState<{ tone: FeedbackTone; text: string }>({
     tone: "info",
-    text: "Chon mini game va bat dau hanh trinh hoc ma choi!",
+    text: "Chọn mini game và bắt đầu hành trình học mà chơi!",
   });
+
+  useEffect(() => {
+    setFeedback((prev) => {
+      const isDefault = 
+        prev.text === "Chon mini game va bat dau hanh trinh hoc ma choi!" ||
+        prev.text === "Chọn mini game và bắt đầu hành trình học mà chơi!" ||
+        prev.text === "Select a mini game and start your learning journey!";
+      
+      if (isDefault) {
+        return {
+          ...prev,
+          text: language === "vi" 
+            ? "Chọn mini game và bắt đầu hành trình học mà chơi!" 
+            : "Select a mini game and start your learning journey!",
+        };
+      }
+      return prev;
+    });
+  }, [language]);
+
   const {
     mathQuestion,
     memoryRound,
