@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useState, useEffect, useRef } from "react";
 import styles from "@/app/page.module.css";
 import { MiniGameTabs } from "@/components/ui-shell/MiniGameTabs";
 import { LevelSelector } from "@/components/ui-shell/LevelSelector";
@@ -103,6 +103,19 @@ export function DashboardPlayView(props: DashboardPlayViewProps) {
     const activeBoss = BOSS_POOL[bossIndex];
     const petName = rewardState.equippedPet || pickLanguageText(language, "Quả Trứng", "Egg");
 
+    const [isShaking, setIsShaking] = useState(false);
+    const prevWrongRef = useRef((runStats as { wrong: number }).wrong);
+
+    useEffect(() => {
+        const currentWrong = (runStats as { wrong: number }).wrong;
+        if (currentWrong > prevWrongRef.current) {
+            setIsShaking(true);
+            const t = setTimeout(() => setIsShaking(false), 300);
+            prevWrongRef.current = currentWrong;
+            return () => clearTimeout(t);
+        }
+    }, [runStats]);
+
     return (
         <>
             <MiniGameTabs
@@ -167,7 +180,7 @@ export function DashboardPlayView(props: DashboardPlayViewProps) {
                 id="mission-zone"
                 className={`${styles.questionCard} ${timeLeft <= 6 ? styles.questionCardDanger : ""} ${feedback.tone === "success" ? styles.questionCardBoost : ""
                     } ${currentBossRoundMeta.isBossRound ? styles.questionCardBoss : ""} ${(progress as { combo: number }).combo >= 5 ? styles.questionCardCombo : ""
-                    }`}
+                    } ${isShaking ? styles.shakeBoard : ""} `}
             >
                 {showCelebration ? (
                     <div className={styles.confettiLayer} aria-hidden>
