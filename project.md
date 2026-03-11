@@ -9,10 +9,11 @@
 "Làm app dạy bé lớp 1 học toán, theo phong cách hoạt hình, cuốn hút trẻ em."
 
 ## 🚀 Thành quả đạt được
-- **Giao diện:** Đậm chất hoạt hình Doraemon với hình nền và âm thanh bảo bối.
-- **Tính năng:** 3 cửa ải thử thách (đến 100), có đồng hồ đếm ngược kịch tính.
-- **Kỹ thuật:** 100% Offline, chạy bằng file `.bat` một cú click.
-- **An toàn:** Không Internet, không quảng cáo, bảo vệ bé tuyệt đối.
+- **Giao diện:** Kiến trúc Next.js + Phaser cực mượt, hoạt ảnh đẹp mắt, thiết kế chuẩn sư phạm.
+- **Tính năng:** 3 trò chơi (Toán, Nhớ, Logic/Màu sắc), Hệ thống Boss và Map Khám phá.
+- **Giải trí (Juiciness):** Thú cưng tương tác trên màn hình, Âm thanh động tăng Pitch theo Combo, Nhiệm vụ ẩn thưởng xu, Rung lắc màn hình.
+- **Kỹ thuật:** 100% Offline, chạy siêu mượt với React 19 tối ưu, không cần API ngoài.
+- **An toàn:** Không Internet, có khoá an toàn của phụ huynh.
 
 ## 💡 Bài học từ Vibe Coding
 - Không cần biết code vẫn có thể điều khiển AI tạo ra App phức tạp.

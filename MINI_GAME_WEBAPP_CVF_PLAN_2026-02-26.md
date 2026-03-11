@@ -208,3 +208,12 @@ Xay dung 1 web app game cho tre em (6-10 tuoi), vui, dep, nhieu dong luc quay la
 - `Mini_Game/CVF_DOCS/UAT_CHECKLIST.md` (Phase D)
 
 Neu can lam nhanh, co the bat dau voi mini game "Toan nhanh" truoc, sau do mo rong ra 2 game con lai de giam rui ro delivery.
+
+---
+
+## 10) Cap nhat Gamification (Phase 6 - Hoan thanh)
+Giai doan nang cap hoan chay song song da dua du an vuot muc MVP:
+- **Reactive Pets**: Thu cung nhung tren Dashboard, tuong tac bieu cam buon/vui/an mung theo hanh dong tre.
+- **Dynamic Audio**: Pitch Scaling cho am thanh thuong khi dat nhieu combo, tang high-tempo vao vong Boss.
+- **Micro-goals**: Nhiem vu an ngan han (Combo x3, Tra loi trong 3s) de tang reward va dopamine.
+- **Juiciness UX**: Man hinh rung lac (Screen shake) khi sai, va Chuyen cau tuc thi (No-wait transition) khong do tre.

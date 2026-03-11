@@ -4,6 +4,8 @@ Game học toán cho trẻ em 6-10 tuổi, xây dựng theo Controlled Vibe Fram
 
 ## 🌟 Features
 - 3 mini game: Toán nhanh, Nhớ hình, Phân loại màu sắc
+- Giải trí nâng cao (Gamification): Thú cưng tương tác, Vòng quay Boss, Nhiệm vụ ẩn (Micro-goals)
+- Game Feel: Âm thanh động đi theo Combo, Màn hình rung lắc vật lý
 - Hệ thống điểm, combo, huy hiệu
 - Chế độ phụ huynh: giới hạn thời gian chơi
 - 100% offline, an toàn cho bé
