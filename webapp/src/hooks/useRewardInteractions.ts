@@ -51,12 +51,12 @@ export function useRewardInteractions({
           text: chest.unlockedSticker
             ? pickLanguageText(
                 language,
-                `Chest mo thanh cong! Sticker moi: ${chest.unlockedSticker}.`,
+                `Rương mở thành công! Sticker mới: ${chest.unlockedSticker}.`,
                 `Chest opened! New sticker: ${chest.unlockedSticker}.`,
               )
             : pickLanguageText(
                 language,
-                "Chest mo thanh cong. Bo suu tap da day.",
+                "Rương mở thành công. Bộ sưu tập đã đầy.",
                 "Chest opened. Sticker album is complete.",
               ),
         });

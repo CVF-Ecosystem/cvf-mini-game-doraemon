@@ -478,7 +478,7 @@ export default function Home() {
       tone: "info",
       text: pickLanguageText(
         language,
-        `Da doi profile ${AGE_PROFILE_LABELS.vi[ageGroup]}. Do kho duoc can chinh lai.`,
+        `Đã đổi profile ${AGE_PROFILE_LABELS.vi[ageGroup]}. Độ khó được căn chỉnh lại.`,
         `Profile switched to ${AGE_PROFILE_LABELS.en[ageGroup]}. Difficulty was re-balanced.`,
       ),
     });
@@ -791,7 +791,7 @@ export default function Home() {
     return (
       <main id="cvf-game-root" className={styles.page} data-game="math" data-age={ageGroup}>
         <div className={styles.frame}>
-          <section className={styles.heroCard}>{pickLanguageText(language, "Dang tai du lieu game...", "Loading game data...")}</section>
+          <section className={styles.heroCard}>{pickLanguageText(language, "Đang tải dữ liệu game...", "Loading game data...")}</section>
         </div>
       </main>
     );
@@ -810,12 +810,12 @@ export default function Home() {
       {showOnboarding ? (
         <div className={styles.onboardingBackdrop} role="dialog" aria-modal="true">
           <section className={styles.onboardingCard}>
-            <h2>{pickLanguageText(language, "Chao mung den CVF Mini Detective Academy", "Welcome to CVF Mini Detective Academy")}</h2>
+            <h2>{pickLanguageText(language, "Chào mừng đến CVF Mini Detective Academy", "Welcome to CVF Mini Detective Academy")}</h2>
             <ul className={styles.onboardingList}>
-              <li>{pickLanguageText(language, "Chon 1 trong 6 mini game o hang tab phia tren.", "Choose 1 of 6 mini games on the top tab row.")}</li>
-              <li>{pickLanguageText(language, "Nhan phim 1-4 de chon dap an nhanh, nhan R de choi lai run.", "Press keys 1-4 to answer quickly, and press R to restart the run.")}</li>
-              <li>{pickLanguageText(language, "Thu game Tu Vung Song Ngu de luyen Viet-Anh theo dang ghep cap.", "Try Bilingual Vocab to practice Vietnamese-English matching.")}</li>
-              <li>{pickLanguageText(language, "Parent Mode cho phep gioi han thoi gian choi moi ngay.", "Parent Mode can limit total daily play time.")}</li>
+              <li>{pickLanguageText(language, "Chọn 1 trong 6 mini game ở hàng tab phía trên.", "Choose 1 of 6 mini games on the top tab row.")}</li>
+              <li>{pickLanguageText(language, "Nhấn phím 1-4 để chọn đáp án nhanh, nhấn R để chơi lại run.", "Press keys 1-4 to answer quickly, and press R to restart the run.")}</li>
+              <li>{pickLanguageText(language, "Thử game Từ Vựng Song Ngữ để luyện Việt-Anh theo dạng ghép cặp.", "Try Bilingual Vocab to practice Vietnamese-English matching.")}</li>
+              <li>{pickLanguageText(language, "Parent Mode cho phép giới hạn thời gian chơi mỗi ngày.", "Parent Mode can limit total daily play time.")}</li>
             </ul>
             <div className={styles.onboardingActions}>
               <button
@@ -827,7 +827,7 @@ export default function Home() {
                   void trackEvent("onboarding_complete", { source: "first_launch" });
                 }}
               >
-                {pickLanguageText(language, "Bat dau choi", "Start Playing")}
+                {pickLanguageText(language, "Bắt đầu chơi", "Start Playing")}
               </button>
             </div>
           </section>
@@ -844,52 +844,52 @@ export default function Home() {
                   {pickLanguageText(
                     language,
                     experimentAssignment.layoutVariant === "guide_first"
-                      ? "Huong dan nhanh: nhan phim 1-4 de tra loi, R de choi lai run."
-                      : "Che do choi nhanh: nhan phim 1-4 de tra loi, R de choi lai.",
+                      ? "Hướng dẫn nhanh: nhấn phím 1-4 để trả lời, R để chơi lại run."
+                      : "Chế độ chơi nhanh: nhấn phím 1-4 để trả lời, R để chơi lại.",
                     experimentAssignment.layoutVariant === "guide_first"
                       ? "Quick guide: press keys 1-4 to answer and R to restart the run."
                       : "Quick play mode: press keys 1-4 to answer and R to restart.",
                   )}
                 </p>
                 <p className={styles.profileFocusLine}>
-                  {pickLanguageText(language, "Nhiem vu theo tuoi:", "Age mission:")} {activeAgeGameCopy.focus}
+                  {pickLanguageText(language, "Nhiệm vụ theo tuổi:", "Age mission:")} {activeAgeGameCopy.focus}
                 </p>
               </>
             ) : (
               <p>
                 {pickLanguageText(
                   language,
-                  "Nhiem vu hom nay: giai ma mini game, giu combo that dai va tro thanh sieu tham tu cua hoc vien.",
+                  "Nhiệm vụ hôm nay: giải mã mini game, giữ combo thật dài và trở thành siêu thám tử của học viện.",
                   "Today's mission: solve mini games, keep long combos, and become the academy's super detective.",
                 )}
               </p>
             )}
             <div className={styles.heroMeta}>
-              <span className={styles.chip}>{pickLanguageText(language, "Dang choi", "Now playing")}: {gameTitle}</span>
+              <span className={styles.chip}>{pickLanguageText(language, "Đang chơi", "Now playing")}: {gameTitle}</span>
               <span className={styles.chip}>{pickLanguageText(language, "Profile", "Profile")}: {ageProfileLabel}</span>
               <span className={styles.chip}>{adaptiveBandLabel}</span>
               <span className={styles.chip}>
-                {pickLanguageText(language, "Goi y luyen", "Practice next")}: {recommendedGameTitle}
+                {pickLanguageText(language, "Gợi ý luyện", "Practice next")}: {recommendedGameTitle}
               </span>
               <span className={styles.chip}>
-                {pickLanguageText(language, "Tien do man", "Stage progress")}: {language === "vi" ? activeNode.labelVi : activeNode.labelEn} ({activeNode.correctCount}/{activeNode.requiredCorrect})
+                {pickLanguageText(language, "Tiến độ màn", "Stage progress")}: {language === "vi" ? activeNode.labelVi : activeNode.labelEn} ({activeNode.correctCount}/{activeNode.requiredCorrect})
               </span>
               <span className={styles.chip}>
-                {pickLanguageText(language, "Level mo khoa", "Unlocked level")}: {levelLabels[highestUnlockedLevel].label}
+                {pickLanguageText(language, "Level mở khóa", "Unlocked level")}: {levelLabels[highestUnlockedLevel].label}
               </span>
               {remainingSessionMinutes !== null ? (
                 <span className={styles.chip}>
-                  {pickLanguageText(language, "Con lai phien", "Session left")}: {remainingSessionMinutes}m
+                  {pickLanguageText(language, "Còn lại phiên", "Session left")}: {remainingSessionMinutes}m
                 </span>
               ) : null}
               {activeView === "play" ? null : (
                 <>
-                  <span className={styles.chip}>{pickLanguageText(language, "Ngon ngu", "Language")}: {language.toUpperCase()}</span>
-                  <span className={styles.chip}>{pickLanguageText(language, "Combo = Diem thuong", "Combo = Bonus points")}</span>
+                  <span className={styles.chip}>{pickLanguageText(language, "Ngôn ngữ", "Language")}: {language.toUpperCase()}</span>
+                  <span className={styles.chip}>{pickLanguageText(language, "Combo = Điểm thưởng", "Combo = Bonus points")}</span>
                 </>
               )}
             </div>
-            <div className={styles.viewTabs} role="tablist" aria-label={pickLanguageText(language, "Dieu huong man hinh", "Screen navigation")}>
+            <div className={styles.viewTabs} role="tablist" aria-label={pickLanguageText(language, "Điều hướng màn hình", "Screen navigation")}>
               {(Object.keys(dashboardViewLabels) as DashboardView[]).map((viewKey) => (
                 <button
                   key={viewKey}
@@ -914,13 +914,13 @@ export default function Home() {
                   }, 0);
                 }}
               >
-                {pickLanguageText(language, "Vao tran ngay", "Play Now")}
+                {pickLanguageText(language, "Vào trận ngay", "Play Now")}
               </button>
               <button type="button" className={styles.secondaryCta} onClick={() => setActiveView("settings")}>
-                {pickLanguageText(language, "Mo cai dat", "Open Settings")}
+                {pickLanguageText(language, "Mở cài đặt", "Open Settings")}
               </button>
               <button type="button" className={styles.secondaryCta} onClick={() => setShowOnboarding(true)}>
-                {pickLanguageText(language, "Xem huong dan nhanh", "Quick Guide")}
+                {pickLanguageText(language, "Xem hướng dẫn nhanh", "Quick Guide")}
               </button>
             </div>
           </article>

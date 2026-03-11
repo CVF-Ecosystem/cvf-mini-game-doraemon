@@ -79,7 +79,7 @@ export function MainQuestionBoard({
         <p className={styles.hint}>
           {pickLanguageText(
             language,
-            "Di chuyen gio de triet pha dap an dung!",
+            "Di chuyển giỏ để bắt đáp án đúng!",
             "Move the basket to catch the right answer!"
           )}
         </p>
@@ -105,7 +105,7 @@ export function MainQuestionBoard({
           <div className={styles.memoryCover}>
             {pickLanguageText(
               language,
-              "Chuoi da an. Ky hieu nao xuat hien nhieu nhat?",
+              "Chuỗi đã ẩn. Ký hiệu nào xuất hiện nhiều nhất?",
               "Sequence hidden. Which symbol appears the most?"
             )}
           </div>
@@ -134,7 +134,7 @@ export function MainQuestionBoard({
         <p className={styles.hint}>
           {pickLanguageText(
             language,
-            "Tim quy luat day so va chon so tiep theo.",
+            "Tìm quy luật dãy số và chọn số tiếp theo.",
             "Find the sequence rule and choose the next number."
           )}
         </p>
@@ -163,7 +163,7 @@ export function MainQuestionBoard({
         <p className={styles.hint}>
           {pickLanguageText(
             language,
-            "So nao lon hon? Chon dap an nhanh.",
+            "Số nào lớn hơn? Chọn đáp án nhanh.",
             "Which number is larger? Choose quickly."
           )}
         </p>
@@ -195,12 +195,12 @@ export function MainQuestionBoard({
           {vocabRound.direction === "vi_to_en"
             ? pickLanguageText(
                 language,
-                `Tu tieng Anh cua "${vocabRound.prompt}" la gi?`,
+                `Từ tiếng Anh của "${vocabRound.prompt}" là gì?`,
                 `What is the English word for "${vocabRound.prompt}"?`
               )
             : pickLanguageText(
                 language,
-                `Tu tieng Viet cua "${vocabRound.prompt}" la gi?`,
+                `Từ tiếng Việt của "${vocabRound.prompt}" là gì?`,
                 `What is the Vietnamese word for "${vocabRound.prompt}"?`
               )}
         </p>
@@ -228,12 +228,12 @@ export function MainQuestionBoard({
         {colorAssistEnabled
           ? pickLanguageText(
               language,
-              "Chon MAU cua chu (co marker hinh dang), khong phai noi dung cua chu.",
+              "Chọn MÀU của chữ (có marker hình dáng), không phải nội dung của chữ.",
               "Pick the COLOR of the text (with shape marker), not the word meaning."
             )
           : pickLanguageText(
               language,
-              "Chon MAU cua chu, khong phai noi dung cua chu.",
+              "Chọn MÀU của chữ, không phải nội dung của chữ.",
               "Pick the COLOR of the text, not the word meaning."
             )}
       </p>

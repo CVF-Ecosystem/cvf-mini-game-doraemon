@@ -63,10 +63,10 @@ export function useParentModeInteractions({
   const onUnlock = useCallback((pin: string) => {
     if (verifyParentPin(progress, pin)) {
       setParentUnlocked(true);
-      setParentMessage(pickLanguageText(language, "Da mo khoa khu vuc phu huynh.", "Parent area unlocked."));
+      setParentMessage(pickLanguageText(language, "Đã mở khóa khu vực phụ huynh.", "Parent area unlocked."));
       void trackEvent("parent_unlock", { success: true });
     } else {
-      setParentMessage(pickLanguageText(language, "PIN khong dung. Vui long thu lai.", "Incorrect PIN. Please try again."));
+      setParentMessage(pickLanguageText(language, "PIN không đúng. Vui lòng thử lại.", "Incorrect PIN. Please try again."));
       void trackEvent("parent_unlock", { success: false });
     }
   }, [language, pickLanguageText, progress, setParentMessage, setParentUnlocked]);
@@ -75,18 +75,18 @@ export function useParentModeInteractions({
     const normalized = pin.trim();
     const isValid = /^[0-9]{4,6}$/.test(normalized);
     if (!isValid) {
-      setParentMessage(pickLanguageText(language, "PIN can 4-6 chu so.", "PIN must have 4-6 digits."));
+      setParentMessage(pickLanguageText(language, "PIN cần 4-6 chữ số.", "PIN must have 4-6 digits."));
       return;
     }
     setParentPin(normalized);
     setParentUnlocked(false);
-    setParentMessage(pickLanguageText(language, "Da luu PIN va khoa lai khu vuc phu huynh.", "PIN saved and parent area locked again."));
+    setParentMessage(pickLanguageText(language, "Đã lưu PIN và khóa lại khu vực phụ huynh.", "PIN saved and parent area locked again."));
     void trackEvent("parent_pin_update", { length: normalized.length });
   }, [language, pickLanguageText, setParentMessage, setParentPin, setParentUnlocked]);
 
   const onLock = useCallback(() => {
     setParentUnlocked(false);
-    setParentMessage(pickLanguageText(language, "Da khoa khu vuc phu huynh.", "Parent area locked."));
+    setParentMessage(pickLanguageText(language, "Đã khóa khu vực phụ huynh.", "Parent area locked."));
   }, [language, pickLanguageText, setParentMessage, setParentUnlocked]);
 
   const onResetAll = useCallback(() => {
@@ -105,14 +105,14 @@ export function useParentModeInteractions({
     saveReportHistoryState(freshReport);
     sessionStartedAtRef.current = Date.now();
     setParentUnlocked(false);
-    setParentMessage(pickLanguageText(language, "Da reset toan bo du lieu choi.", "All game data has been reset."));
+    setParentMessage(pickLanguageText(language, "Đã reset toàn bộ dữ liệu chơi.", "All game data has been reset."));
     setWrongStreak(0);
     beginRound(activeGame, activeRoundConfig, "reset_all");
   }, [activeGame, activeRoundConfig, beginRound, language, pickLanguageText, resetAllProgress, sessionStartedAtRef, setAcademyProgress, setContentBankState, setParentMessage, setParentUnlocked, setReportHistory, setRewardState, setWrongStreak]);
 
   const onToggle = useCallback((enabled: boolean) => {
     if (parentLocked) {
-      setParentMessage(pickLanguageText(language, "Can mo khoa Parent Mode truoc khi thay doi.", "Please unlock Parent Mode before changing settings."));
+      setParentMessage(pickLanguageText(language, "Cần mở khóa Parent Mode trước khi thay đổi.", "Please unlock Parent Mode before changing settings."));
       return;
     }
     setParentMode(enabled, progress.parentMode.dailyLimitMinutes);
@@ -120,12 +120,12 @@ export function useParentModeInteractions({
       sessionStartedAtRef.current = Date.now();
     }
     void trackEvent("parent_mode_update", { enabled });
-    setParentMessage(pickLanguageText(language, "Da cap nhat Parent Mode.", "Parent Mode updated."));
+    setParentMessage(pickLanguageText(language, "Đã cập nhật Parent Mode.", "Parent Mode updated."));
   }, [language, parentLocked, pickLanguageText, progress.parentMode.dailyLimitMinutes, sessionStartedAtRef, setParentMessage, setParentMode]);
 
   const onLimitChange = useCallback((minutes: number) => {
     if (parentLocked) {
-      setParentMessage(pickLanguageText(language, "Can mo khoa Parent Mode truoc khi thay doi.", "Please unlock Parent Mode before changing settings."));
+      setParentMessage(pickLanguageText(language, "Cần mở khóa Parent Mode trước khi thay đổi.", "Please unlock Parent Mode before changing settings."));
       return;
     }
     updateProgress((previous) => updateParentMode(previous, { dailyLimitMinutes: minutes }));
@@ -133,7 +133,7 @@ export function useParentModeInteractions({
     setParentMessage(
       pickLanguageText(
         language,
-        `Da cap nhat gioi han: ${minutes} phut/ngay.`,
+        `Đã cập nhật giới hạn: ${minutes} phút/ngày.`,
         `Daily limit updated: ${minutes} min/day.`
       )
     );
@@ -141,7 +141,7 @@ export function useParentModeInteractions({
 
   const onSessionLimitChange = useCallback((minutes: number) => {
     if (parentLocked) {
-      setParentMessage(pickLanguageText(language, "Can mo khoa Parent Mode truoc khi thay doi.", "Please unlock Parent Mode before changing settings."));
+      setParentMessage(pickLanguageText(language, "Cần mở khóa Parent Mode trước khi thay đổi.", "Please unlock Parent Mode before changing settings."));
       return;
     }
     updateProgress((previous) => updateParentMode(previous, { sessionLimitMinutes: minutes }));
@@ -149,7 +149,7 @@ export function useParentModeInteractions({
     setParentMessage(
       pickLanguageText(
         language,
-        `Da cap nhat gioi han moi phien: ${minutes} phut.`,
+        `Đã cập nhật giới hạn mỗi phiên: ${minutes} phút.`,
         `Session limit updated: ${minutes} min.`
       )
     );

@@ -143,8 +143,8 @@ export function getLearningSuggestion(
     recommendedGame,
     reasonVi:
       recommendedGame === activeGame
-        ? "Dang can bang ky nang. Tiep tuc che do hien tai."
-        : `Nen uu tien ${getGameTitle(recommendedGame, "vi")} de bo sung diem yeu hien tai.`,
+        ? "Đang cân bằng kỹ năng. Tiếp tục chế độ hiện tại."
+        : `Nên ưu tiên ${getGameTitle(recommendedGame, "vi")} để bổ sung điểm yếu hiện tại.`,
     reasonEn:
       recommendedGame === activeGame
         ? "Skills are balanced. Keep the current mode."

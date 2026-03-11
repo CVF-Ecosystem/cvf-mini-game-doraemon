@@ -23,10 +23,10 @@ export function VirtualPetRoom(props: VirtualPetRoomProps) {
         if (rewardState.coins < 50 || isFeeding) return;
         setIsFeeding(true);
         onFeedPet();
-        
+
         // Dispatch event for Phaser scene
         window.dispatchEvent(new CustomEvent('pet-feed-event'));
-        
+
         setTimeout(() => setIsFeeding(false), 1000);
     };
 
@@ -34,10 +34,10 @@ export function VirtualPetRoom(props: VirtualPetRoomProps) {
         if (rewardState.coins < 20 || isPlaying) return;
         setIsPlaying(true);
         onPlayWithPet();
-        
+
         // Dispatch event for Phaser scene
         window.dispatchEvent(new CustomEvent('pet-play-event'));
-        
+
         setTimeout(() => setIsPlaying(false), 1000);
     };
 
@@ -58,7 +58,7 @@ export function VirtualPetRoom(props: VirtualPetRoomProps) {
     else if (petName === "Nano Dragon") passiveSkill = pickLanguageText(language, "Kỹ năng: Bậc thầy Combo (x4 = Rương)", "Skill: Combo Master (x4 = Chest)");
 
     const shopItems = [
-        { id: "hat_cowboy", name: pickLanguageText(language, "Mũ Cao Lồi", "Cowboy Hat"), cost: 200, icon: "🤠" },
+        { id: "hat_cowboy", name: pickLanguageText(language, "Mũ Cao Bồi", "Cowboy Hat"), cost: 200, icon: "🤠" },
         { id: "hat_magic", name: pickLanguageText(language, "Mũ Phù Thủy", "Magic Hat"), cost: 300, icon: "🧙" },
         { id: "bg_space", name: pickLanguageText(language, "Nền Vũ Trụ", "Space BG"), cost: 500, icon: "🌌" },
         { id: "toy_ball", name: pickLanguageText(language, "Bóng Đồ Chơi", "Toy Ball"), cost: 150, icon: "⚽" },
@@ -68,19 +68,19 @@ export function VirtualPetRoom(props: VirtualPetRoomProps) {
         <article className={styles.petRoomCard}>
             <header className={styles.petRoomHeader}>
                 <div className={styles.petRoomTabs}>
-                    <button 
+                    <button
                         className={`${styles.petRoomTabBtn} ${activeTab === "pet" ? styles.petRoomTabActive : ""}`}
                         onClick={() => setActiveTab("pet")}
                     >
                         {pickLanguageText(language, "Phòng Thú Cưng", "Pet Room")}
                     </button>
-                    <button 
+                    <button
                         className={`${styles.petRoomTabBtn} ${activeTab === "shop" ? styles.petRoomTabActive : ""}`}
                         onClick={() => setActiveTab("shop")}
                     >
                         {pickLanguageText(language, "Cửa Hàng", "Shop")}
                     </button>
-                    <button 
+                    <button
                         className={`${styles.petRoomTabBtn} ${activeTab === "bosses" ? styles.petRoomTabActive : ""}`}
                         onClick={() => setActiveTab("bosses")}
                     >
@@ -157,13 +157,13 @@ export function VirtualPetRoom(props: VirtualPetRoomProps) {
                                 <div key={item.id} className={`${styles.shopItemCard} ${isOwned ? styles.shopItemOwned : ""}`}>
                                     <div className={styles.shopItemIcon}>{item.icon}</div>
                                     <p className={styles.shopItemName}>{item.name}</p>
-                                    <button 
+                                    <button
                                         className={styles.shopBuyBtn}
                                         disabled={isOwned || !canAfford}
                                         onClick={() => onBuyItem(item.id, item.cost)}
                                     >
-                                        {isOwned 
-                                            ? pickLanguageText(language, "Đã mua", "Owned") 
+                                        {isOwned
+                                            ? pickLanguageText(language, "Đã mua", "Owned")
                                             : `${item.cost} 💰`
                                         }
                                     </button>

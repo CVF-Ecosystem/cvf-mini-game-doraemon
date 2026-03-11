@@ -55,7 +55,7 @@ export const DashboardSettingsView = forwardRef<HTMLElement, DashboardSettingsVi
         <section ref={ref} className={styles.settingsPanel}>
             <div className={styles.heroControlGrid}>
                 <section className={styles.heroControlCard}>
-                    <p className={styles.controlTitle}>{pickLanguageText(language, "Do tuoi", "Age group")}</p>
+                    <p className={styles.controlTitle}>{pickLanguageText(language, "Độ tuổi", "Age group")}</p>
                     <div className={styles.segmentedRow}>
                         {(Object.keys(AGE_PROFILES) as AgeGroupKey[]).map((key) => (
                             <button
@@ -68,7 +68,7 @@ export const DashboardSettingsView = forwardRef<HTMLElement, DashboardSettingsVi
                             </button>
                         ))}
                     </div>
-                    <p className={styles.controlTitle}>{pickLanguageText(language, "Ngon ngu", "Language")}</p>
+                    <p className={styles.controlTitle}>{pickLanguageText(language, "Ngôn ngữ", "Language")}</p>
                     <div className={styles.segmentedRow}>
                         {(["vi", "en"] as UiLanguage[]).map((langKey) => (
                             <button
@@ -80,13 +80,13 @@ export const DashboardSettingsView = forwardRef<HTMLElement, DashboardSettingsVi
                                     void trackEvent("language_switch", { language: langKey });
                                 }}
                             >
-                                {langKey === "vi" ? "Tieng Viet" : "English"}
+                                {langKey === "vi" ? "Tiếng Việt" : "English"}
                             </button>
                         ))}
                     </div>
                 </section>
                 <section className={styles.heroControlCard}>
-                    <p className={styles.controlTitle}>{pickLanguageText(language, "Am thanh", "Audio")}</p>
+                    <p className={styles.controlTitle}>{pickLanguageText(language, "Âm thanh", "Audio")}</p>
                     <div className={styles.audioRow}>
                         <button
                             type="button"
@@ -98,11 +98,11 @@ export const DashboardSettingsView = forwardRef<HTMLElement, DashboardSettingsVi
                             }}
                         >
                             {soundMuted
-                                ? pickLanguageText(language, "Bat am thanh", "Unmute")
-                                : pickLanguageText(language, "Tat am thanh", "Mute")}
+                                ? pickLanguageText(language, "Bật âm thanh", "Unmute")
+                                : pickLanguageText(language, "Tắt âm thanh", "Mute")}
                         </button>
                         <label className={styles.audioLabel} htmlFor="sound-volume">
-                            {pickLanguageText(language, "Am luong", "Volume")} {soundVolume}%
+                            {pickLanguageText(language, "Âm lượng", "Volume")} {soundVolume}%
                         </label>
                     </div>
                     <input
@@ -129,7 +129,7 @@ export const DashboardSettingsView = forwardRef<HTMLElement, DashboardSettingsVi
                                 void trackEvent("audio_update", { muted: soundMuted, volume: soundVolume / 100, uiEnabled: nextUiEnabled });
                             }}
                         />
-                        <span>{pickLanguageText(language, "Hieu ung click/hover", "Click/hover effects")}</span>
+                        <span>{pickLanguageText(language, "Hiệu ứng click/hover", "Click/hover effects")}</span>
                     </label>
                     <label className={styles.uiSfxToggle}>
                         <input
@@ -148,7 +148,7 @@ export const DashboardSettingsView = forwardRef<HTMLElement, DashboardSettingsVi
                                 });
                             }}
                         />
-                        <span>{pickLanguageText(language, "Doc cau hoi (TTS)", "Read question (TTS)")}</span>
+                        <span>{pickLanguageText(language, "Đọc câu hỏi (TTS)", "Read question (TTS)")}</span>
                     </label>
                     <label className={styles.uiSfxToggle}>
                         <input
@@ -164,7 +164,7 @@ export const DashboardSettingsView = forwardRef<HTMLElement, DashboardSettingsVi
                                 });
                             }}
                         />
-                        <span>{pickLanguageText(language, "Tu dong doc cau moi", "Auto read new question")}</span>
+                        <span>{pickLanguageText(language, "Tự động đọc câu mới", "Auto read new question")}</span>
                     </label>
                     <label className={styles.uiSfxToggle}>
                         <input
@@ -176,11 +176,11 @@ export const DashboardSettingsView = forwardRef<HTMLElement, DashboardSettingsVi
                                 void trackEvent("audio_update", { colorAssistEnabled: nextValue });
                             }}
                         />
-                        <span>{pickLanguageText(language, "Ho tro mui mau (marker hinh dang)", "Color-blind assist (shape markers)")}</span>
+                        <span>{pickLanguageText(language, "Hỗ trợ mù màu (marker hình dáng)", "Color-blind assist (shape markers)")}</span>
                     </label>
                     {!ttsSupported ? (
                         <p className={styles.telemetryNote}>
-                            {pickLanguageText(language, "Trinh duyet nay khong ho tro TTS.", "This browser does not support TTS.")}
+                            {pickLanguageText(language, "Trình duyệt này không hỗ trợ TTS.", "This browser does not support TTS.")}
                         </p>
                     ) : null}
                 </section>
@@ -188,7 +188,7 @@ export const DashboardSettingsView = forwardRef<HTMLElement, DashboardSettingsVi
             <p className={styles.telemetryNote}>
                 {pickLanguageText(
                     language,
-                    "Telemetry chi ghi event an danh, khong thu thap thong tin ca nhan cua tre.",
+                    "Telemetry chỉ ghi event ẩn danh, không thu thập thông tin cá nhân của trẻ.",
                     "Telemetry only records anonymous events. No child personal data is collected."
                 )}
             </p>

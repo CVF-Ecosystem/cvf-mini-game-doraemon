@@ -165,12 +165,12 @@ export function useGameEngine({
 
       let text =
         reason === "round_timeout"
-          ? pickLanguageText(language, "Het gio roi. Lam tiep cau moi nhe!", "Time is up. Keep going with the next round!")
-          : pickLanguageText(language, "Chua dung. Binh tinh va thu lai!", "Not correct yet. Stay calm and try again!");
+          ? pickLanguageText(language, "Hết giờ rồi. Làm tiếp câu mới nhé!", "Time is up. Keep going with the next round!")
+          : pickLanguageText(language, "Chưa đúng. Bình tĩnh và thử lại!", "Not correct yet. Stay calm and try again!");
       if (activeBossMeta.isBossRound) {
         text = pickLanguageText(
           language,
-          `Boss round ${activeBossMeta.bossRoundNumber} chua qua. Thu lai va tang toc nhe!`,
+          `Boss round ${activeBossMeta.bossRoundNumber} chưa qua. Thử lại và tăng tốc nhé!`,
           `Boss round ${activeBossMeta.bossRoundNumber} missed. Try again with faster focus!`,
         );
       }
@@ -205,7 +205,7 @@ export function useGameEngine({
           tone: "success",
           text: pickLanguageText(
             language,
-            `Hoan thanh luot 15 cau! Dung ${runStats.correct} | Sai ${nextRunWrong} | Chinh xac ${accuracy}%.`,
+            `Hoàn thành lượt 15 câu! Đúng ${runStats.correct} | Sai ${nextRunWrong} | Chính xác ${accuracy}%.`,
             `Run complete! Correct ${runStats.correct} | Wrong ${nextRunWrong} | Accuracy ${accuracy}%.`,
           ),
         });
@@ -335,11 +335,11 @@ export function useGameEngine({
         text: activeBossMeta.isBossRound
           ? pickLanguageText(
             language,
-            `Boss round ${activeBossMeta.bossRoundNumber} da vuot qua! +${points} diem thuong.`,
+            `Boss round ${activeBossMeta.bossRoundNumber} đã vượt qua! +${points} điểm thưởng.`,
             `Boss round ${activeBossMeta.bossRoundNumber} cleared! +${points} bonus points.`,
           )
           : language === "vi"
-            ? `Chinh xac! +${points} diem. Combo x${nextCombo}.`
+            ? `Chính xác! +${points} điểm. Combo x${nextCombo}.`
             : `Correct! +${points} points. Combo x${nextCombo}.`,
       });
       trackEvent("answer_correct", { level: level.key, game: activeGame, points, bossRound: activeBossMeta.isBossRound });
@@ -376,7 +376,7 @@ export function useGameEngine({
           tone: "success",
           text: pickLanguageText(
             language,
-            `Hoan thanh luot 15 cau! Dung ${nextRunCorrect} | Sai ${runStats.wrong} | Chinh xac ${accuracy}%.`,
+            `Hoàn thành lượt 15 câu! Đúng ${nextRunCorrect} | Sai ${runStats.wrong} | Chính xác ${accuracy}%.`,
             `Run complete! Correct ${nextRunCorrect} | Wrong ${runStats.wrong} | Accuracy ${accuracy}%.`,
           ),
         });

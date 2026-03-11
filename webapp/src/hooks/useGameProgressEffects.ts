@@ -103,7 +103,7 @@ export function useGameProgressEffects({
       tone: "success",
       text: pickLanguageText(
         language,
-        "Chuc mung! Ban da hoan thanh Thu Thach Ban Than hom nay va nhan duoc Phan Thuong Thu Thach!",
+        "Chúc mừng! Bạn đã hoàn thành Thử Thách Bản Thân hôm nay và nhận được Phần Thưởng Thử Thách!",
         "Congratulations! You completed today's Self Challenge and earned a Challenge Reward!"
       ),
     });

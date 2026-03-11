@@ -64,7 +64,7 @@ export function useGameKeyboardInteraction({
         startNewRunSession();
         setFeedback({
           tone: "info",
-          text: pickLanguageText(language, "Bat dau luot moi 15 cau (shortcut R).", "Started a new 15-question run (shortcut R)."),
+          text: pickLanguageText(language, "Bắt đầu lượt mới 15 câu (shortcut R).", "Started a new 15-question run (shortcut R)."),
         });
         return;
       }

@@ -101,10 +101,10 @@ export function useGameHeaderViewModels({
 
   const dashboardViewLabels = useMemo(
     () => ({
-      play: pickLanguageText(language, "Tro choi", "Play"),
-      progress: pickLanguageText(language, "Tien trinh", "Progress"),
-      parent: pickLanguageText(language, "Phu huynh", "Parent"),
-      settings: pickLanguageText(language, "Cai dat", "Settings"),
+      play: pickLanguageText(language, "Trò chơi", "Play"),
+      progress: pickLanguageText(language, "Tiến trình", "Progress"),
+      parent: pickLanguageText(language, "Phụ huynh", "Parent"),
+      settings: pickLanguageText(language, "Cài đặt", "Settings"),
     }),
     [language, pickLanguageText]
   );
@@ -126,12 +126,12 @@ export function useGameHeaderViewModels({
 
   const adaptiveBandLabel = useMemo(() => {
     if (activeAdaptiveTuning.band === "assist") {
-      return pickLanguageText(language, "Adaptive: ho tro", "Adaptive: assist");
+      return pickLanguageText(language, "Adaptive: hỗ trợ", "Adaptive: assist");
     }
     if (activeAdaptiveTuning.band === "challenge") {
-      return pickLanguageText(language, "Adaptive: thu thach", "Adaptive: challenge");
+      return pickLanguageText(language, "Adaptive: thử thách", "Adaptive: challenge");
     }
-    return pickLanguageText(language, "Adaptive: can bang", "Adaptive: steady");
+    return pickLanguageText(language, "Adaptive: cân bằng", "Adaptive: steady");
   }, [activeAdaptiveTuning.band, language, pickLanguageText]);
 
   const recommendedGameTitle = useMemo(

@@ -69,37 +69,37 @@ export function useDashboardViewModels({
     const rounds = progress.dailyStats.rounds;
     const accuracy = rounds > 0 ? Math.round((progress.dailyStats.correct / rounds) * 100) : 0;
     const weakSpotMap: Record<MiniGameKey, string> = {
-      math: pickLanguageText(language, "Toan", "Math"),
-      memory: pickLanguageText(language, "Nho", "Memory"),
-      color: pickLanguageText(language, "Mau", "Color"),
+      math: pickLanguageText(language, "Toán", "Math"),
+      memory: pickLanguageText(language, "Nhớ", "Memory"),
+      color: pickLanguageText(language, "Màu", "Color"),
       logic: pickLanguageText(language, "Logic", "Logic"),
-      compare: pickLanguageText(language, "So sanh", "Compare"),
-      vocab: pickLanguageText(language, "Tu vung", "Vocab"),
-      action_catch: pickLanguageText(language, "Phan xa", "Reflex"),
+      compare: pickLanguageText(language, "So sánh", "Compare"),
+      vocab: pickLanguageText(language, "Từ vựng", "Vocab"),
+      action_catch: pickLanguageText(language, "Phản xạ", "Reflex"),
     };
     const skillScores = {
-      [pickLanguageText(language, "Toan", "Math")]: learningPathState.skills.math.score,
-      [pickLanguageText(language, "Nho", "Memory")]: learningPathState.skills.memory.score,
-      [pickLanguageText(language, "Mau", "Color")]: learningPathState.skills.color.score,
+      [pickLanguageText(language, "Toán", "Math")]: learningPathState.skills.math.score,
+      [pickLanguageText(language, "Nhớ", "Memory")]: learningPathState.skills.memory.score,
+      [pickLanguageText(language, "Màu", "Color")]: learningPathState.skills.color.score,
       [pickLanguageText(language, "Logic", "Logic")]: learningPathState.skills.logic.score,
-      [pickLanguageText(language, "So sanh", "Compare")]: learningPathState.skills.compare.score,
-      [pickLanguageText(language, "Tu vung", "Vocab")]: learningPathState.skills.vocab.score,
-      [pickLanguageText(language, "Phan xa", "Reflex")]: learningPathState.skills.action_catch.score,
+      [pickLanguageText(language, "So sánh", "Compare")]: learningPathState.skills.compare.score,
+      [pickLanguageText(language, "Từ vựng", "Vocab")]: learningPathState.skills.vocab.score,
+      [pickLanguageText(language, "Phản xạ", "Reflex")]: learningPathState.skills.action_catch.score,
     };
     const offlineActivity = weeklyReport.weakGame === "math"
-      ? pickLanguageText(language, "Choi dominos/phep tinh do vat 5-10 phut.", "Try domino or object-counting math for 5-10 minutes.")
+      ? pickLanguageText(language, "Chơi dominos/phép tính đồ vật 5-10 phút.", "Try domino or object-counting math for 5-10 minutes.")
       : weeklyReport.weakGame === "memory"
-        ? pickLanguageText(language, "Tro nho hinh voi 6-8 the bai giay.", "Use 6-8 paper cards for memory matching.")
+        ? pickLanguageText(language, "Trò nhớ hình với 6-8 thẻ bài giấy.", "Use 6-8 paper cards for memory matching.")
         : weeklyReport.weakGame === "logic"
-          ? pickLanguageText(language, "Sap xep day so bang que tinh theo quy luat.", "Build number patterns using sticks or blocks.")
+          ? pickLanguageText(language, "Sắp xếp dãy số bằng que tính theo quy luật.", "Build number patterns using sticks or blocks.")
           : weeklyReport.weakGame === "compare"
-            ? pickLanguageText(language, "So sanh so tren flashcard, bat dau tu cap so gan nhau.", "Compare number flashcards, starting with close values.")
+            ? pickLanguageText(language, "So sánh số trên flashcard, bắt đầu từ cặp số gần nhau.", "Compare number flashcards, starting with close values.")
             : weeklyReport.weakGame === "vocab"
-              ? pickLanguageText(language, "On tu vung Viet-Anh 5 phut bang flashcard.", "Review Vietnamese-English words for 5 minutes using flashcards.")
-              : pickLanguageText(language, "Tro choi nhan mau do vat trong nha.", "Play household color spotting challenges.");
+              ? pickLanguageText(language, "Ôn từ vựng Việt-Anh 5 phút bằng flashcard.", "Review Vietnamese-English words for 5 minutes using flashcards.")
+              : pickLanguageText(language, "Trò chơi nhận màu đồ vật trong nhà.", "Play household color spotting challenges.");
     const teacherSummary = pickLanguageText(
       language,
-      `Tap trung uu tien ${recommendedGameTitle} trong 2-3 ngay toi.`,
+      `Tập trung ưu tiên ${recommendedGameTitle} trong 2-3 ngày tới.`,
       `Prioritize ${recommendedGameTitle} for the next 2-3 days.`,
     );
     return {
@@ -110,7 +110,7 @@ export function useDashboardViewModels({
       weeklyRounds: weeklyReport.totalRounds,
       weeklyAccuracy: weeklyReport.averageAccuracy,
       weeklyTrend: weeklyReport.trend,
-      weakSpot: weeklyReport.weakGame ? weakSpotMap[weeklyReport.weakGame] : pickLanguageText(language, "Can bang", "Balanced"),
+      weakSpot: weeklyReport.weakGame ? weakSpotMap[weeklyReport.weakGame] : pickLanguageText(language, "Cân bằng", "Balanced"),
       suggestion: language === "vi" ? weeklyReport.suggestionVi : weeklyReport.suggestionEn,
       skillScores,
       offlineActivity,
@@ -179,61 +179,61 @@ export function useDashboardViewModels({
       if (sessionRemainingMs <= 0) {
         return pickLanguageText(
           language,
-          "Da het gioi han cho phien hien tai. Nghia 5-10 phut roi quay lai nhe.",
+          "Đã hết giới hạn chơi phiên hiện tại. Nghỉ 5-10 phút rồi quay lại nhé.",
           "This session limit is reached. Take a 5-10 minute break and come back.",
         );
       }
       return pickLanguageText(
         language,
-        "Hom nay da het quota choi. Nghia 1 chut roi quay lai vao ngay mai nhe.",
+        "Hôm nay đã hết quota chơi. Nghỉ 1 chút rồi quay lại vào ngày mai nhé.",
         "Today's play quota is over. Take a short break and come back tomorrow.",
       );
     }
     if (feedbackTone === "success") {
-      return pickLanguageText(language, "Nhip rat tot. Giu combo de mo khoa them huy hieu!", "Great rhythm. Keep your combo to unlock more badges!");
+      return pickLanguageText(language, "Nhịp rất tốt. Giữ combo để mở khóa thêm huy hiệu!", "Great rhythm. Keep your combo to unlock more badges!");
     }
     if (feedbackTone === "error" && wrongStreak >= 2) {
       if (activeGame === "math") {
         return pickLanguageText(
           language,
-          "Thu tach phep tinh thanh so nho de tim dap an nhanh hon.",
+          "Thử tách phép tính thành số nhỏ để tìm đáp án nhanh hơn.",
           "Try splitting the operation into smaller numbers for faster solving.",
         );
       }
       if (activeGame === "memory") {
         return pickLanguageText(
           language,
-          "Nhin cum 2 ky hieu 1 lan de nho de hon.",
+          "Nhìn cụm 2 ký hiệu 1 lần để nhớ dễ hơn.",
           "Look at symbols in pairs. It is easier to remember.",
         );
       }
       if (activeGame === "logic") {
         return pickLanguageText(
           language,
-          "So sanh khoang cach giua cac so de nhin ra quy luat.",
+          "So sánh khoảng cách giữa các số để nhìn ra quy luật.",
           "Compare the gaps between numbers to spot the pattern.",
         );
       }
       if (activeGame === "compare") {
         return pickLanguageText(
           language,
-          "Dat mat vao so hang chuc truoc, roi moi den so hang don vi.",
+          "Đặt mắt vào số hàng chục trước, rồi mới đến số hàng đơn vị.",
           "Compare tens first, then ones for faster decisions.",
         );
       }
       if (activeGame === "vocab") {
         return pickLanguageText(
           language,
-          "Doc tu trong dau 1 lan va lien tuong theo cap nghia.",
+          "Đọc từ trong đầu 1 lần và liên tưởng theo cặp nghĩa.",
           "Say the prompt once in your head and map it to its meaning pair.",
         );
       }
-      return pickLanguageText(language, "Tap trung vao MAU chu, dung doc noi dung cua chu.", "Focus on the COLOR of the text, not the word meaning.");
+      return pickLanguageText(language, "Tập trung vào MÀU chữ, đừng đọc nội dung của chữ.", "Focus on the COLOR of the text, not the word meaning.");
     }
     if (timeLeft <= 6) {
-      return pickLanguageText(language, "Sap het gio. Chon dap an nhanh va chinh xac!", "Time is almost over. Pick quickly and stay accurate!");
+      return pickLanguageText(language, "Sắp hết giờ. Chọn đáp án nhanh và chính xác!", "Time is almost over. Pick quickly and stay accurate!");
     }
-    return pickLanguageText(language, "Nhan phim 1-4 de tra loi sieu nhanh, phim R de choi lai run.", "Use keys 1-4 to answer fast, and R to restart the run.");
+    return pickLanguageText(language, "Nhấn phím 1-4 để trả lời siêu nhanh, phím R để chơi lại run.", "Use keys 1-4 to answer fast, and R to restart the run.");
   }, [activeGame, feedbackTone, language, playable, sessionRemainingMs, timeLeft, wrongStreak, pickLanguageText]);
 
   return {

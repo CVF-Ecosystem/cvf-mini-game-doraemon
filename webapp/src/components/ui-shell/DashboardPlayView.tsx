@@ -130,7 +130,7 @@ export function DashboardPlayView(props: DashboardPlayViewProps) {
                         tone: "info",
                         text:
                             language === "vi"
-                                ? `${miniGameLabels[nextGame].title} san sang!`
+                                ? `${miniGameLabels[nextGame].title} sẵn sàng!`
                                 : `${miniGameLabels[nextGame].title} is ready!`,
                     });
                     void trackEvent("game_switch", { game: nextGame, level: (level as { key: string }).key });
@@ -147,7 +147,7 @@ export function DashboardPlayView(props: DashboardPlayViewProps) {
                             tone: "info",
                             text: pickLanguageText(
                                 language,
-                                `Can hoan thanh them nhiem vu de mo ${levelLabels[nextLevelKey].label}.`,
+                                `Cần hoàn thành thêm nhiệm vụ để mở ${levelLabels[nextLevelKey].label}.`,
                                 `Complete more missions to unlock ${levelLabels[nextLevelKey].label}.`
                             ),
                         });
@@ -161,7 +161,7 @@ export function DashboardPlayView(props: DashboardPlayViewProps) {
                         tone: "info",
                         text:
                             language === "vi"
-                                ? `${levelLabels[nextLevelKey].label} da kich hoat cho ${gameTitle}.`
+                                ? `${levelLabels[nextLevelKey].label} đã kích hoạt cho ${gameTitle}.`
                                 : `${levelLabels[nextLevelKey].label} is now active for ${gameTitle}.`,
                     });
                 }}
@@ -184,7 +184,7 @@ export function DashboardPlayView(props: DashboardPlayViewProps) {
             >
                 {showCelebration ? (
                     <div className={styles.confettiLayer} aria-hidden>
-                        <span className={styles.confettiMessage}>{pickLanguageText(language, "Tuyet voi!", "Awesome!")}</span>
+                        <span className={styles.confettiMessage}>{pickLanguageText(language, "Tuyệt vời!", "Awesome!")}</span>
                         {Array.from({ length: 14 }, (_, idx) => (
                             <span key={`${celebrationSeed}-${idx}`} className={styles.confettiPiece} />
                         ))}
@@ -213,16 +213,16 @@ export function DashboardPlayView(props: DashboardPlayViewProps) {
                             {currentBossRoundMeta.isBossRound
                                 ? pickLanguageText(
                                     language,
-                                    `Boss round ${currentBossRoundMeta.bossRoundNumber}: thoi gian ngan hon, diem x2.`,
+                                    `Boss round ${currentBossRoundMeta.bossRoundNumber}: thời gian ngắn hơn, điểm x2.`,
                                     `Boss round ${currentBossRoundMeta.bossRoundNumber}: shorter timer, 2x score.`
                                 )
                                 : activeGame === "memory" && memoryRevealLeft > 0
                                     ? pickLanguageText(
                                         language,
-                                        `Nho ky chuoi trong ${memoryRevealLeft}s truoc khi bi an.`,
+                                        `Nhớ kỹ chuỗi trong ${memoryRevealLeft}s trước khi bị ẩn.`,
                                         `Memorize the sequence in ${memoryRevealLeft}s before it hides.`
                                     )
-                                    : pickLanguageText(language, "Dung lien tiep de tang combo va mo khoa huy hieu.", "Keep answering correctly to build combo and unlock badges.")}
+                                    : pickLanguageText(language, "Đúng liên tiếp để tăng combo và mở khóa huy hiệu.", "Keep answering correctly to build combo and unlock badges.")}
                         </p>
                         {currentBossRoundMeta.isBossRound ? null : (
                             <p className={styles.profileFocusLine}>{(activeAgeGameCopy as { focus: string }).focus}</p>
@@ -238,7 +238,7 @@ export function DashboardPlayView(props: DashboardPlayViewProps) {
                             disabled={!ttsEnabled || soundMuted || !ttsSupported || (runStats as { completed: boolean }).completed}
                             onClick={() => speakCurrentPrompt("manual")}
                         >
-                            {pickLanguageText(language, "Doc cau hoi", "Read question")}
+                            {pickLanguageText(language, "Đọc câu hỏi", "Read question")}
                         </button>
                         {(learningSuggestion as { recommendedGame: MiniGameKey }).recommendedGame !== activeGame ? (
                             <button
@@ -251,21 +251,21 @@ export function DashboardPlayView(props: DashboardPlayViewProps) {
                                     beginRound(nextGame, nextRound, "switch_game");
                                 }}
                             >
-                                {pickLanguageText(language, "Luyen diem yeu", "Train weak skill")}
+                                {pickLanguageText(language, "Luyện điểm yếu", "Train weak skill")}
                             </button>
                         ) : null}
                         {!playable ? (
                             <p className={styles.blocked}>
                                 {sessionRemainingMs <= 0
-                                    ? pickLanguageText(language, "Phien choi da het gio. Hay nghi nhe.", "Session limit reached. Time for a short break.")
-                                    : pickLanguageText(language, "Da het gio choi hom nay.", "Today's play time is over.")}
+                                    ? pickLanguageText(language, "Phiên chơi đã hết giờ. Hãy nghỉ nhé.", "Session limit reached. Time for a short break.")
+                                    : pickLanguageText(language, "Đã hết giờ chơi hôm nay.", "Today's play time is over.")}
                             </p>
                         ) : null}
                     </div>
                 </header>
                 <div className={styles.timerCluster}>
                     <p className={styles.timerLabel}>
-                        {pickLanguageText(language, "Dong ho vong", "Round timer")}: {timeLeft}s / {roundDurationSeconds}s
+                        {pickLanguageText(language, "Đồng hồ vòng", "Round timer")}: {timeLeft}s / {roundDurationSeconds}s
                     </p>
                     <div className={styles.timerTrack} role="presentation" aria-hidden>
                         <span className={styles.timerFill} style={{ width: `${Math.round(timeRatio * 100)}%` }} />
@@ -276,13 +276,13 @@ export function DashboardPlayView(props: DashboardPlayViewProps) {
                     <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
                         <div style={{ flex: 1 }}>
                             <p className={styles.runTrackerLabel}>
-                                {pickLanguageText(language, "Tien do luot", "Run progress")}: {(runStats as { total: number }).total}/15
+                                {pickLanguageText(language, "Tiến độ lượt", "Run progress")}: {(runStats as { total: number }).total}/15
                             </p>
                             <div className={styles.runTrackerTrack} role="presentation" aria-hidden>
                                 <span className={styles.runTrackerFill} style={{ width: `${Math.round(runProgressRatio * 100)}%` }} />
                             </div>
                             <p className={styles.runTrackerStats}>
-                                {pickLanguageText(language, "Dung", "Correct")} {(runStats as { correct: number }).correct} | {pickLanguageText(language, "Sai", "Wrong")} {(runStats as { wrong: number }).wrong} | {pickLanguageText(language, "Chinh xac", "Accuracy")} {runAccuracy}%
+                                {pickLanguageText(language, "Đúng", "Correct")} {(runStats as { correct: number }).correct} | {pickLanguageText(language, "Sai", "Wrong")} {(runStats as { wrong: number }).wrong} | {pickLanguageText(language, "Chính xác", "Accuracy")} {runAccuracy}%
                             </p>
                         </div>
                         <div style={{ flexShrink: 0, width: '100px', height: '100px', pointerEvents: 'none' }}>
@@ -298,9 +298,9 @@ export function DashboardPlayView(props: DashboardPlayViewProps) {
                             <span className={styles.runBalloon} />
                             <span className={styles.runBalloon} />
                         </div>
-                        <h3>{pickLanguageText(language, "Hoan thanh luot 15 cau!", "15-question run complete!")}</h3>
+                        <h3>{pickLanguageText(language, "Hoàn thành lượt 15 câu!", "15-question run complete!")}</h3>
                         <p>
-                            {pickLanguageText(language, "Ket qua:", "Result:")} {pickLanguageText(language, "Dung", "Correct")} {(runStats as { correct: number }).correct} | {pickLanguageText(language, "Sai", "Wrong")} {(runStats as { wrong: number }).wrong} | {pickLanguageText(language, "Chinh xac", "Accuracy")} {runAccuracy}%
+                            {pickLanguageText(language, "Kết quả:", "Result:")} {pickLanguageText(language, "Đúng", "Correct")} {(runStats as { correct: number }).correct} | {pickLanguageText(language, "Sai", "Wrong")} {(runStats as { wrong: number }).wrong} | {pickLanguageText(language, "Chính xác", "Accuracy")} {runAccuracy}%
                         </p>
                         <button
                             type="button"
@@ -309,11 +309,11 @@ export function DashboardPlayView(props: DashboardPlayViewProps) {
                                 startNewRunSession();
                                 setFeedback({
                                     tone: "info",
-                                    text: pickLanguageText(language, "Bat dau luot moi 15 cau. San sang!", "New 15-question run started. Ready!"),
+                                    text: pickLanguageText(language, "Bắt đầu lượt mới 15 câu. Sẵn sàng!", "New 15-question run started. Ready!"),
                                 });
                             }}
                         >
-                            {pickLanguageText(language, "Bat dau luot moi", "Start New Run")}
+                            {pickLanguageText(language, "Bắt đầu lượt mới", "Start New Run")}
                         </button>
                     </section>
                 ) : (
@@ -331,14 +331,14 @@ export function DashboardPlayView(props: DashboardPlayViewProps) {
                         startNewRunSession();
                         setFeedback({
                             tone: "info",
-                            text: pickLanguageText(language, "Bat dau luot moi 15 cau. Co gang pha ky luc nao!", "Started a new 15-question run. Let's break your high score!"),
+                            text: pickLanguageText(language, "Bắt đầu lượt mới 15 câu. Cố gắng phá kỷ lục nào!", "Started a new 15-question run. Let's break your high score!"),
                         });
                         void trackEvent("restart_run", { level: (level as { key: string }).key, game: activeGame });
                     }}
                 >
                     {(runStats as { completed: boolean }).completed
-                        ? pickLanguageText(language, "Lam luot moi", "Start Next Run")
-                        : pickLanguageText(language, "Choi lai tu dau", "Restart Run")}
+                        ? pickLanguageText(language, "Làm lượt mới", "Start Next Run")
+                        : pickLanguageText(language, "Chơi lại từ đầu", "Restart Run")}
                 </button>
             </section>
         </>
