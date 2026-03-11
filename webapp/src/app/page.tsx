@@ -740,16 +740,6 @@ export default function Home() {
     handleAnswer,
   });
 
-  if (!hydrated) {
-    return (
-      <main id="cvf-game-root" className={styles.page} data-game="math" data-age={ageGroup}>
-        <div className={styles.frame}>
-          <section className={styles.heroCard}>{pickLanguageText(language, "Dang tai du lieu game...", "Loading game data...")}</section>
-        </div>
-      </main>
-    );
-  }
-
   const {
     onOpenChest,
     onEquipAvatar,
@@ -796,6 +786,16 @@ export default function Home() {
     beginRound,
     updateProgress,
   });
+
+  if (!hydrated) {
+    return (
+      <main id="cvf-game-root" className={styles.page} data-game="math" data-age={ageGroup}>
+        <div className={styles.frame}>
+          <section className={styles.heroCard}>{pickLanguageText(language, "Dang tai du lieu game...", "Loading game data...")}</section>
+        </div>
+      </main>
+    );
+  }
 
   const playgroundPreviewCard =
     activeView === "play" ? null : (

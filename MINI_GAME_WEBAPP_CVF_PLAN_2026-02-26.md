@@ -1,6 +1,6 @@
 # CVF Plan - Web App Mini Game Cho Tre Em
 
-**Ngay lap:** 26/02/2026  
+**Ngay lap:** 11/03/2026  
 **Nguon hien trang:** `Mini_Game/app.py`, `Mini_Game/project.md`  
 **Khung ap dung:** CVF 4 phase (A Discovery -> B Design -> C Build -> D Review)
 
